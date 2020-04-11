@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A352441A2FC00E54CDA /* AppDelegate.swift */; };
 		1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */; };
-		1BB17A3A2441A2FC00E54CDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A392441A2FC00E54CDA /* ContentView.swift */; };
 		1BB17A3C2441A2FE00E54CDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB17A3B2441A2FE00E54CDA /* Assets.xcassets */; };
 		1BB17A3F2441A2FE00E54CDA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB17A3E2441A2FE00E54CDA /* Preview Assets.xcassets */; };
 		1BB17A422441A2FE00E54CDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB17A402441A2FE00E54CDA /* LaunchScreen.storyboard */; };
 		1BB17A4D2441A2FF00E54CDA /* TrainDelayReporter_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A4C2441A2FF00E54CDA /* TrainDelayReporter_iOSTests.swift */; };
 		1BB17A582441A2FF00E54CDA /* TrainDelayReporter_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A572441A2FF00E54CDA /* TrainDelayReporter_iOSUITests.swift */; };
+		1BB17A6C2441B78000E54CDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6B2441B78000E54CDA /* ContentView.swift */; };
+		1BB17A6E2441B7B400E54CDA /* TrainRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */; };
+		1BB17A702441B7D100E54CDA /* DelayListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */; };
+		1BB17A722441B7E100E54CDA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A712441B7E100E54CDA /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 		1BB17A322441A2FC00E54CDA /* TrainDelayReporter_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainDelayReporter_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB17A352441A2FC00E54CDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BB17A392441A2FC00E54CDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1BB17A3B2441A2FE00E54CDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BB17A3E2441A2FE00E54CDA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1BB17A412441A2FE00E54CDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		1BB17A532441A2FF00E54CDA /* TrainDelayReporter_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainDelayReporter_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB17A572441A2FF00E54CDA /* TrainDelayReporter_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainDelayReporter_iOSUITests.swift; sourceTree = "<group>"; };
 		1BB17A592441A2FF00E54CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BB17A6B2441B78000E54CDA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainRouteCell.swift; sourceTree = "<group>"; };
+		1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayListInteractor.swift; sourceTree = "<group>"; };
+		1BB17A712441B7E100E54CDA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +105,11 @@
 		1BB17A342441A2FC00E54CDA /* TrainDelayReporter_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1BB17A672441B6E300E54CDA /* Injected */,
+				1BB17A662441B6DC00E54CDA /* Interactors */,
+				1BB17A652441B6D500E54CDA /* UI */,
 				1BB17A352441A2FC00E54CDA /* AppDelegate.swift */,
 				1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */,
-				1BB17A392441A2FC00E54CDA /* ContentView.swift */,
 				1BB17A3B2441A2FE00E54CDA /* Assets.xcassets */,
 				1BB17A402441A2FE00E54CDA /* LaunchScreen.storyboard */,
 				1BB17A432441A2FE00E54CDA /* Info.plist */,
@@ -134,6 +142,47 @@
 				1BB17A592441A2FF00E54CDA /* Info.plist */,
 			);
 			path = TrainDelayReporter_iOSUITests;
+			sourceTree = "<group>";
+		};
+		1BB17A652441B6D500E54CDA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1BB17A6A2441B78000E54CDA /* Sceen */,
+				1BB17A692441B73100E54CDA /* Components */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1BB17A662441B6DC00E54CDA /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		1BB17A672441B6E300E54CDA /* Injected */ = {
+			isa = PBXGroup;
+			children = (
+				1BB17A712441B7E100E54CDA /* AppState.swift */,
+			);
+			path = Injected;
+			sourceTree = "<group>";
+		};
+		1BB17A692441B73100E54CDA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1BB17A6A2441B78000E54CDA /* Sceen */ = {
+			isa = PBXGroup;
+			children = (
+				1BB17A6B2441B78000E54CDA /* ContentView.swift */,
+			);
+			path = Sceen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,9 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB17A6E2441B7B400E54CDA /* TrainRouteCell.swift in Sources */,
 				1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */,
 				1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */,
-				1BB17A3A2441A2FC00E54CDA /* ContentView.swift in Sources */,
+				1BB17A722441B7E100E54CDA /* AppState.swift in Sources */,
+				1BB17A702441B7D100E54CDA /* DelayListInteractor.swift in Sources */,
+				1BB17A6C2441B78000E54CDA /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
