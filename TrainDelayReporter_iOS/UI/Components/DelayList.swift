@@ -6,19 +6,14 @@
 //  Copyright © 2020 Ryusei Nomi. All rights reserved.
 //
 
+import UIKit
 import SwiftUI
 import QGrid
 
 struct DelayList: View {
-    //TODO: Get delay list from API
-    let trains = [
-        TrainRoute(companyName: "JR東日本", routeName: "常磐線"),
-        TrainRoute(companyName: "JR東日本", routeName: "水郡線"),
-        TrainRoute(companyName: "JR東日本", routeName: "八高線"),
-        TrainRoute(companyName: "JR西日本", routeName: "奈良線"),
-    ]
+    private var delayListInteractor = DelayListInteractor()
     var body: some View {
-        QGrid(trains,
+        QGrid(self.delayListInteractor.fetchDelayList(),
               columns: 1,
               vSpacing: 20,
               hSpacing: 20,
