@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		1BB17A6E2441B7B400E54CDA /* TrainRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */; };
 		1BB17A702441B7D100E54CDA /* DelayListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */; };
 		1BB17A722441B7E100E54CDA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A712441B7E100E54CDA /* AppState.swift */; };
+		1BB17A752441BA6700E54CDA /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB17A742441BA6700E54CDA /* QGrid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB17A752441BA6700E54CDA /* QGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +203,9 @@
 			dependencies = (
 			);
 			name = TrainDelayReporter_iOS;
+			packageProductDependencies = (
+				1BB17A742441BA6700E54CDA /* QGrid */,
+			);
 			productName = TrainDelayReporter_iOS;
 			productReference = 1BB17A322441A2FC00E54CDA /* TrainDelayReporter_iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +278,9 @@
 				Base,
 			);
 			mainGroup = 1BB17A292441A2FC00E54CDA;
+			packageReferences = (
+				1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */,
+			);
 			productRefGroup = 1BB17A332441A2FC00E54CDA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -646,6 +654,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BB17A742441BA6700E54CDA /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1BB17A2A2441A2FC00E54CDA /* Project object */;
 }
