@@ -9,21 +9,18 @@
 import UIKit
 import SwiftUI
 import QGrid
+import Combine
 
 struct DelayList: View {
-    //private var delayListInteractor = DelayListInteractor()
-    private let fetchedDelayList = DelayListInteractor().fetchDelayList()
+    
+    @ObservedObject var delayListFetcher = DelayListInteractor()
     
     var body: some View {
         VStack(alignment: .center) {
-            if fetchedDelayList.isEmpty {
-                Text("現在遅れている列車は\nありません")
-                    .font(.title)
-                    .fontWeight(.ultraLight)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.gray)
+            if delayListFetcher.isComplete == false {
+                Text("列車の遅延情報を取得中です")
             }
-            QGrid(fetchedDelayList,
+            QGrid(delayListFetcher.trains,
                   columns: 1,
                   vSpacing: 20,
                   hSpacing: 20,

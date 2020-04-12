@@ -7,12 +7,19 @@
 //
 
 import SwiftUI
+import Combine
 
-struct DelayListInteractor {
+class DelayListInteractor: ObservableObject {
     
-    public func fetchDelayList() -> Array<TrainRoute> {
-        var trains = [TrainRoute]()
-        //TODO: Get delay list from API
+    @Published var isComplete:Bool = false
+    public var trains:[TrainRoute] = []
+    
+    init() {
+        fetchDelayList()
+    }
+    
+    // Fetch train-delay-list from API-Server and give to View Object
+    public func fetchDelayList() {
         let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let clientError = error {
@@ -31,10 +38,13 @@ struct DelayListInteractor {
             let jsonObject = try? JSONSerialization.jsonObject(with: delayListData, options: []) as? [String:Any]
             let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
             for trainRoute in delayListArray! {
-                trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+                self.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+            }
+            // Exec status change in main thred to avoid an error
+            DispatchQueue.main.async {
+                self.isComplete = true
             }
         }
         task.resume()
-        return trains
     }
 }
