@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        DelayList()
+        GeometryReader { geometry in
+            VStack {
+                NavigationBar()
+                    .frame(width: geometry.size.width, height: geometry.size.height/10)
+                DelayList()
+            }
+        }
     }
 }
 

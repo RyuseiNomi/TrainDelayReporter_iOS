@@ -16,18 +16,21 @@ struct DelayList: View {
     @ObservedObject var delayListFetcher = DelayListInteractor()
     
     var body: some View {
-        VStack(alignment: .center) {
-            if delayListFetcher.isComplete == false {
-                Text("列車の遅延情報を取得中です")
-            }
-            QGrid(delayListFetcher.trains,
-                  columns: 1,
-                  vSpacing: 20,
-                  hSpacing: 20,
-                  vPadding: 20,
-                  hPadding: 0
-            ) { trainRoute in
-                TrainRouteCell(delayList: trainRoute)
+        ZStack {
+            Color(red: 255/255, green: 250/255, blue: 240/255).edgesIgnoringSafeArea(.all)
+            VStack(alignment: .center) {
+                if delayListFetcher.isComplete == false {
+                    Text("列車の遅延情報を取得中です")
+                }
+                QGrid(delayListFetcher.trains,
+                      columns: 1,
+                      vSpacing: 20,
+                      hSpacing: 20,
+                      vPadding: 20,
+                      hPadding: 0
+                ) { trainRoute in
+                    TrainRouteCell(delayList: trainRoute)
+                }
             }
         }
     }
