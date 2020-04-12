@@ -9,14 +9,32 @@
 import SwiftUI
 
 struct DelayListInteractor {
+    
     public func fetchDelayList() -> Array<TrainRoute> {
+        var trains = [TrainRoute]()
         //TODO: Get delay list from API
-        let trains = [
-            TrainRoute(companyName: "JR東日本", routeName: "常磐線"),
-            TrainRoute(companyName: "JR東日本", routeName: "水郡線"),
-            TrainRoute(companyName: "JR東日本", routeName: "八高線"),
-            TrainRoute(companyName: "JR西日本", routeName: "奈良線"),
-        ]
+        let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let clientError = error {
+                print("クライアント側でエラーが発生: \(clientError.localizedDescription) \n")
+                return
+            }
+            guard let delayListData = data, let response = response as? HTTPURLResponse else {
+                print("データもしくはレスポンスがありません")
+                return
+            }
+            if response.statusCode != 200 {
+                print("現在データを取得できません: \(response.statusCode)\n")
+                return
+            }
+            // Convert Data Object to JSON Object
+            let jsonObject = try? JSONSerialization.jsonObject(with: delayListData, options: []) as? [String:Any]
+            let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
+            for trainRoute in delayListArray! {
+                trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+            }
+        }
+        task.resume()
         return trains
     }
 }
