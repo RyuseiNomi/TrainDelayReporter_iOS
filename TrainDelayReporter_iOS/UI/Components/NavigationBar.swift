@@ -16,11 +16,17 @@ struct NavigationBar: View {
                 HStack {
                     Image("Hamburger")
                         .resizable()
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 50.0, height: 50.0, alignment: .leading)
+                    Spacer()
+                    Text("全国")
+                        .foregroundColor(.white)
+                        .fontWeight(.heavy)
+                        .font(.system(size: 30))
+                        .frame(alignment: .center)
                     Spacer()
                     Image("Reload")
                         .resizable()
-                        .frame(width: 50.0, height: 50.0)
+                        .frame(width: 50.0, height: 50.0, alignment: .trailing)
                 }.padding()
             }
         }
