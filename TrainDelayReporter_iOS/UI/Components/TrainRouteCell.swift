@@ -13,23 +13,37 @@ struct TrainRoute: Identifiable {
     var id = UUID()
     let companyName: String
     let routeName: String
+    let status: String = "△"
 }
 
 // The cell which has train route info
 struct TrainRouteCell: View {
     var delayList: TrainRoute
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(delayList.companyName)
-                .foregroundColor(.white)
-                .fontWeight(.bold)
-            Text(delayList.routeName)
-                .foregroundColor(.white)
-                .fontWeight(.heavy)
-                .font(.title)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(self.delayList.companyName)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                Text(self.delayList.routeName)
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.title)
+            }
+            Spacer()
+            VStack {
+                Text(self.delayList.status)
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.system(size: 48))
+                Text(self.delayList.status == "○" ? "正常運転" : "遅れあり")
+                    .foregroundColor(.white)
+                    .fontWeight(.heavy)
+                    .font(.system(size: 18))
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-        .background(Color.green)
+        .background(Color(red: 215/255, green: 61/255, blue: 0/255))
         .cornerRadius(10)
     }
 }
