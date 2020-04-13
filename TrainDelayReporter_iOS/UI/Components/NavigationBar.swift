@@ -14,9 +14,14 @@ struct NavigationBar: View {
             ZStack {
                 Color(red: 107/255, green: 142/255, blue: 35/255).edgesIgnoringSafeArea(.all)
                 HStack {
-                    Image("Hamburger")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0, alignment: .leading)
+                    Button(action: {
+                        print("aaa")
+                    }) {
+                        Image("Hamburger")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0, alignment: .leading)
+                    }
                     Spacer()
                     Text("全国")
                         .foregroundColor(.white)
@@ -24,9 +29,14 @@ struct NavigationBar: View {
                         .font(.system(size: 30))
                         .frame(alignment: .center)
                     Spacer()
-                    Image("Reload")
-                        .resizable()
-                        .frame(width: 50.0, height: 50.0, alignment: .trailing)
+                    Button(action: {
+                        DelayListInteractor()
+                    }) {
+                        Image("Reload")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0, alignment: .trailing)
+                    }
                 }.padding()
             }
         }
