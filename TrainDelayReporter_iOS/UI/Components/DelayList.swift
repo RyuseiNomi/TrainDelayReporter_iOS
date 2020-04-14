@@ -13,10 +13,10 @@ import Combine
 
 struct DelayList: View {
     
-    // ハンバーガーメニューの表示/非表示を管理するための変数
-    @State public var currentOffset = CGFloat.zero
-    @State public var closeOffset = CGFloat.zero
-    @State public var openOffset = CGFloat.zero
+    // HamburgerMenuのx軸情報をDelayListとNavigationBarで共有
+    @Binding public var currentOffset: CGFloat
+    @Binding public var openOffset: CGFloat
+    @Binding public var closeOffset: CGFloat
     
     // APIからのレスポンスを管理するためのオブジェクト
     @ObservedObject var delayListFetcher = DelayListInteractor()
@@ -48,11 +48,7 @@ struct DelayList: View {
                 .background(Color.white)
                 .frame(width: geometry.size.width * 0.5)
                 .onAppear(perform: {
-                    // MenuViewの初期位置・出現時のx軸を定める
-                    self.currentOffset = geometry.size.width * -1
-                    self.closeOffset = self.currentOffset
-                    self.openOffset = ((geometry.size.width/2) * -1)+((geometry.size.width*0.5)/2)
-                    print(self.openOffset)
+                    self.setInitPosition(viewWidth: geometry.size.width)
                 })
                 .offset(x: self.currentOffset)
                 .animation(.default)
@@ -73,5 +69,12 @@ struct DelayList: View {
                 }
             )
         }
+    }
+    
+    // MenuViewの初期位置・出現時のx軸を定める
+    public func setInitPosition(viewWidth: CGFloat) {
+        self.currentOffset = viewWidth * -1
+        self.closeOffset = self.currentOffset
+        self.openOffset = ((viewWidth / 2) * -1)+((viewWidth * 0.5) / 2)
     }
 }
