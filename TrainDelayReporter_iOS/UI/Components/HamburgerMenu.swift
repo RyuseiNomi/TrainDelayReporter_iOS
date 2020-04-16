@@ -70,6 +70,7 @@ struct HamburgerMenu: View {
     }
 }
 
+// [参考](https://qiita.com/masa7351/items/e634f50ade5915f13397)
 extension Color {
     init(hex: Int, alpha: Double = 1) {
         let components = (
