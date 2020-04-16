@@ -24,34 +24,34 @@ struct DelayList: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-            //Color(red: 255/255, green: 250/255, blue: 240/255).edgesIgnoringSafeArea(.all)
-            VStack(alignment: .center) {
-                if self.delayListFetcher.isComplete == false {
-                    Text("列車の遅延情報を取得中です")
+                VStack(alignment: .center) {
+                    if self.delayListFetcher.isComplete == false {
+                        Text("列車の遅延情報を取得中です")
+                    }
+                    QGrid(self.delayListFetcher.trains,
+                          columns: 1,
+                          vSpacing: 20,
+                          hSpacing: 20,
+                          vPadding: 20,
+                          hPadding: 0
+                    ) { trainRoute in
+                        TrainRouteCell(delayList: trainRoute)
+                    }
                 }
-                QGrid(self.delayListFetcher.trains,
-                      columns: 1,
-                      vSpacing: 20,
-                      hSpacing: 20,
-                      vPadding: 20,
-                      hPadding: 0
-                ) { trainRoute in
-                    TrainRouteCell(delayList: trainRoute)
-                }
-            }
-            .background(Color(red: 255/255, green: 250/255, blue: 240/255))
-            // スライドメニューがでてきたらメインコンテンツをグレイアウト
-            Color.gray.opacity(
-                Double((self.closeOffset - self.currentOffset)/self.closeOffset) - 0.4
-            )
-            HamburgerMenu()
-                .background(Color.white)
-                .frame(width: geometry.size.width * 0.5)
-                .onAppear(perform: {
-                    self.setInitPosition(viewWidth: geometry.size.width)
-                })
-                .offset(x: self.currentOffset)
-                .animation(.default)
+                .background(Color(red: 255/255, green: 250/255, blue: 240/255))
+                // スライドメニューがでてきたらメインコンテンツをグレイアウト
+                //TODO 背景色の変化を指定した場合にリストがスクロール出来なくなる原因の調査
+//                Color.gray.opacity(
+//                    Double((self.closeOffset - self.currentOffset)/self.closeOffset) - 0.4
+//                )
+                HamburgerMenu()
+                    .background(Color.white)
+                    .frame(width: geometry.size.width * 0.5)
+                    .onAppear(perform: {
+                        self.setInitPosition(viewWidth: geometry.size.width)
+                    })
+                    .offset(x: self.currentOffset)
+                    .animation(.default)
             }
             .gesture(DragGesture(minimumDistance: 30)
                 .onChanged{ value in
