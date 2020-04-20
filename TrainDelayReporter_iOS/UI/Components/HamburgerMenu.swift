@@ -16,16 +16,6 @@ struct HamburgerMenu: View {
     @State var isComplete:Bool = false
     @State var regionStructs:[Region] = []
     
-    let regions:[String: Int] = [
-        "北海道": 0x02C03C,
-        "東日本": 0x37863F,
-        "西日本": 0x0072BA,
-        "東海": 0xFF7E1C,
-        "四国": 0x00ACD1,
-        "九州": 0xF62D36,
-        "私鉄": 0x98A9D6
-    ]
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
@@ -54,9 +44,17 @@ struct HamburgerMenu: View {
     
     /// Yield Region cells for HamburgerMenu
     public func setRegions() {
-        for region in regions {
-            self.regionStructs.append(Region(name: region.key, colorCode: region.value))
-        }
+        
+        // FIXME: 地方名とカラーコードのイテレート処理の実装
+        // 地方名とカラーコードを格納した辞書型配列をforでイテレートしたかったが
+        // 順番が保証されないため手動でappendしているが。
+        self.regionStructs.append(Region(name: "北海道", colorCode: 0x02C03C))
+        self.regionStructs.append(Region(name: "東日本", colorCode: 0x37863F))
+        self.regionStructs.append(Region(name: "西日本", colorCode: 0x0072BA))
+        self.regionStructs.append(Region(name: "東海", colorCode: 0xFF7E1C))
+        self.regionStructs.append(Region(name: "四国", colorCode: 0x00ACD1))
+        self.regionStructs.append(Region(name: "九州", colorCode: 0xF62D36))
+        self.regionStructs.append(Region(name: "私鉄", colorCode: 0x98A9D6))
         // Exec status change in main thred to avoid an error
         DispatchQueue.main.async {
             self.isComplete = true
