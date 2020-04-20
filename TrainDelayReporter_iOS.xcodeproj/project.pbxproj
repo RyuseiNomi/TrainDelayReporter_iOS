@@ -22,6 +22,7 @@
 		1BB17A772441C1AC00E54CDA /* DelayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A762441C1AC00E54CDA /* DelayList.swift */; };
 		1BF8B3E324434F89000FE401 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8B3E224434F89000FE401 /* NavigationBar.swift */; };
 		1BF8B3E52444A260000FE401 /* HamburgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */; };
+		1BF8EDEC244DDD46000DE47C /* RegionListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8EDEB244DDD46000DE47C /* RegionListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		1BB17A762441C1AC00E54CDA /* DelayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayList.swift; sourceTree = "<group>"; };
 		1BF8B3E224434F89000FE401 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenu.swift; sourceTree = "<group>"; };
+		1BF8EDEB244DDD46000DE47C /* RegionListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */,
+				1BF8EDEB244DDD46000DE47C /* RegionListInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				1BB17A722441B7E100E54CDA /* AppState.swift in Sources */,
 				1BB17A702441B7D100E54CDA /* DelayListInteractor.swift in Sources */,
 				1BB17A772441C1AC00E54CDA /* DelayList.swift in Sources */,
+				1BF8EDEC244DDD46000DE47C /* RegionListInteractor.swift in Sources */,
 				1BB17A6C2441B78000E54CDA /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
