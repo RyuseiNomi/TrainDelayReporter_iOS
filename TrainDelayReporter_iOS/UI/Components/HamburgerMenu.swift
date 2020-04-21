@@ -12,7 +12,6 @@ import Combine
 
 struct HamburgerMenu: View {
     
-    //@ObservedObject var regionListInteractor = RegionListInteractor()
     @State var isComplete:Bool = false
     @State var regionStructs:[Region] = []
     
