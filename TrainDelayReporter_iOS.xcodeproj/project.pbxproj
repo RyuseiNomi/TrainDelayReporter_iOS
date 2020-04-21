@@ -22,6 +22,7 @@
 		1BB17A772441C1AC00E54CDA /* DelayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A762441C1AC00E54CDA /* DelayList.swift */; };
 		1BF8B3E324434F89000FE401 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8B3E224434F89000FE401 /* NavigationBar.swift */; };
 		1BF8B3E52444A260000FE401 /* HamburgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */; };
+		1BF8EDEE244DEF28000DE47C /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8EDED244DEF28000DE47C /* RegionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		1BB17A762441C1AC00E54CDA /* DelayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayList.swift; sourceTree = "<group>"; };
 		1BF8B3E224434F89000FE401 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenu.swift; sourceTree = "<group>"; };
+		1BF8EDED244DEF28000DE47C /* RegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */,
+				1BF8EDED244DEF28000DE47C /* RegionCell.swift */,
 				1BB17A762441C1AC00E54CDA /* DelayList.swift */,
 				1BF8B3E224434F89000FE401 /* NavigationBar.swift */,
 				1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */,
@@ -336,6 +339,7 @@
 				1BB17A6E2441B7B400E54CDA /* TrainRouteCell.swift in Sources */,
 				1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */,
 				1BF8B3E52444A260000FE401 /* HamburgerMenu.swift in Sources */,
+				1BF8EDEE244DEF28000DE47C /* RegionCell.swift in Sources */,
 				1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */,
 				1BF8B3E324434F89000FE401 /* NavigationBar.swift in Sources */,
 				1BB17A722441B7E100E54CDA /* AppState.swift in Sources */,

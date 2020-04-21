@@ -7,30 +7,56 @@
 //
 
 import SwiftUI
+import QGrid
+import Combine
 
 struct HamburgerMenu: View {
+    
+    @State var isComplete:Bool = false
+    @State var regionStructs:[Region] = []
+    
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                Text("地域を選択")
-                    .font(.system(size: 24))
-                Divider()
-                ScrollView(.vertical, showsIndicators: true) {
-                    Text("北海道")
-                        .font(.system(size: 18))
-                    Text("東日本")
-                        .font(.system(size: 18))
-                    Text("西日本")
-                        .font(.system(size: 18))
-                    Text("東海")
-                        .font(.system(size: 18))
-                    Text("四国")
-                        .font(.system(size: 18))
-                    Text("九州")
-                        .font(.system(size: 18))
-                }
+        VStack {
+            Text("地域を選択")
+                .font(.system(size: 30))
+                .foregroundColor(.black)
+                .fontWeight(.bold)
+            Divider()
+            if self.isComplete == false {
+                Text("地域情報を取得中")
             }
-            .padding(.horizontal, 20)
+            QGrid(self.regionStructs,
+                  columns: 1,
+                  vSpacing: 20,
+                  hSpacing: 20,
+                  vPadding: 20,
+                  hPadding: 0
+            ) { region in
+                RegionCell(region: region)
+            }
+        }
+        .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+        .onAppear(perform: {
+            self.setRegions()
+        })
+    }
+    
+    /// Yield Region cells for HamburgerMenu
+    public func setRegions() {
+        
+        // FIXME: 地方名とカラーコードのイテレート処理の実装
+        // 地方名とカラーコードを格納した辞書型配列をforでイテレートしたかったが
+        // 順番が保証されないため手動でappendしているが。
+        self.regionStructs.append(Region(name: "北海道", colorCode: 0x02C03C))
+        self.regionStructs.append(Region(name: "東日本", colorCode: 0x37863F))
+        self.regionStructs.append(Region(name: "西日本", colorCode: 0x0072BA))
+        self.regionStructs.append(Region(name: "東海", colorCode: 0xFF7E1C))
+        self.regionStructs.append(Region(name: "四国", colorCode: 0x00ACD1))
+        self.regionStructs.append(Region(name: "九州", colorCode: 0xF62D36))
+        self.regionStructs.append(Region(name: "私鉄", colorCode: 0x98A9D6))
+        // Exec status change in main thred to avoid an error
+        DispatchQueue.main.async {
+            self.isComplete = true
         }
     }
 }
