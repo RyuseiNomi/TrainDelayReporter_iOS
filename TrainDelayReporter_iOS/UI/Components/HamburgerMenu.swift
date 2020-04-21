@@ -17,29 +17,29 @@ struct HamburgerMenu: View {
     @State var regionStructs:[Region] = []
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                Text("地域を選択")
-                    .font(.system(size: 24))
-                Divider()
-                if self.isComplete == false {
-                    Text("地域情報を取得中")
-                }
-                QGrid(self.regionStructs,
-                      columns: 1,
-                      vSpacing: 20,
-                      hSpacing: 20,
-                      vPadding: 20,
-                      hPadding: 0
-                ) { region in
-                    RegionCell(region: region)
-                }
+        VStack {
+            Text("地域を選択")
+                .font(.system(size: 30))
+                .foregroundColor(.black)
+                .fontWeight(.bold)
+            Divider()
+            if self.isComplete == false {
+                Text("地域情報を取得中")
             }
-            .padding(.horizontal, 20)
-            .onAppear(perform: {
-                self.setRegions()
-            })
+            QGrid(self.regionStructs,
+                  columns: 1,
+                  vSpacing: 20,
+                  hSpacing: 20,
+                  vPadding: 20,
+                  hPadding: 0
+            ) { region in
+                RegionCell(region: region)
+            }
         }
+        .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+        .onAppear(perform: {
+            self.setRegions()
+        })
     }
     
     /// Yield Region cells for HamburgerMenu

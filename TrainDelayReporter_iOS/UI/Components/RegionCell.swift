@@ -17,16 +17,23 @@ struct Region: Identifiable {
 struct RegionCell:View {
     var region: Region
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                HStack() {
+        Button(action :{
+            print(self.region.name) //TODO DelsyListFetcherを呼び出す
+        }) {
+            VStack {
+                HStack {
                     Circle()
-                        .fill(Color(hex: self.region.colorCode))
-                        .frame(width: 10, height:10) //TODO Geometryで大きさを計算
+                    .fill(Color(hex: self.region.colorCode))
+                    .frame(width: 20, height:20) //TODO Geometryで大きさを計算
                     Text(self.region.name)
+                        .foregroundColor(.black)
+                        .font(.title) //TODO フォントの大きさをデバイスごとに変更する
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                Divider()
             }
         }
+        .padding(.horizontal, 20)
     }
 }
 
