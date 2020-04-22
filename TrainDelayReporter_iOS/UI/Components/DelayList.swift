@@ -38,6 +38,9 @@ struct DelayList: View {
                         TrainRouteCell(delayList: trainRoute)
                     }
                 }
+                .onAppear(perform: {
+                    self.delayListFetcher.fetchDelayList()
+                })
                 .background(Color(red: 255/255, green: 250/255, blue: 240/255))
                 // スライドメニューがでてきたらメインコンテンツをグレイアウト
                 //TODO 背景色の変化を指定した場合にリストがスクロール出来なくなる原因の調査

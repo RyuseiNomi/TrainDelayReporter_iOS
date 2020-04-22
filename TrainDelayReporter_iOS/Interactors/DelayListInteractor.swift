@@ -15,7 +15,7 @@ class DelayListInteractor: ObservableObject {
     public var trains:[TrainRoute] = []
     
     init() {
-        fetchDelayList()
+        isComplete = false
     }
     
     // Fetch train-delay-list from API-Server and give to View Object
