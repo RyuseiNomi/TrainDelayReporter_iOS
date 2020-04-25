@@ -13,6 +13,7 @@ struct NavigationBar: View {
     @Binding public var currentOffset: CGFloat
     @Binding public var openOffset: CGFloat
     @Binding public var closeOffset: CGFloat
+    @EnvironmentObject public var appState: AppState
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,7 +36,8 @@ struct NavigationBar: View {
                         .frame(alignment: .center)
                     Spacer()
                     Button(action: {
-                        DelayListInteractor()
+                        //TODO EnvironmentObjectをDIしてInteractorのメソッドを発火
+                        self.appState.delayList.isComplete = false
                     }) {
                         Image("Reload")
                             .renderingMode(.original)
