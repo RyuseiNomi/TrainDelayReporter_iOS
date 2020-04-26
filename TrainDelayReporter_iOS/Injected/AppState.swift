@@ -20,6 +20,7 @@ class AppState: ObservableObject {
         var currentOffset = CGFloat.zero
         var openOffset = CGFloat.zero
         var closeOffset = CGFloat.zero
+        var region:String = "全国"
     }
     
     @Published public var delayList = DelayList()

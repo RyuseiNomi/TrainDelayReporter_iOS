@@ -24,6 +24,7 @@ struct RegionCell:View {
             let delayListFetcher = DelayListInteractor(appState: self.appState)
             delayListFetcher.fetchDelayList(region: self.region.name)
             self.appState.toggleHamburgerMenu()
+            self.appState.menuOffset.region = self.region.name
         }) {
             VStack {
                 HStack {
