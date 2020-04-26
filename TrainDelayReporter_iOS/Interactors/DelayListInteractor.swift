@@ -9,17 +9,19 @@
 import SwiftUI
 import Combine
 
-class DelayListInteractor: ObservableObject {
+class DelayListInteractor {
     
-    @Published var isComplete:Bool = false
-    public var trains:[TrainRoute] = []
+    public var appState:AppState
     
-    init() {
-        fetchDelayList()
+    init(appState: AppState) {
+        // ViewコンポーネントよりEnvieonmentObjectから読み込んだAppStateインスタンスを取得
+        self.appState = appState
     }
     
     // Fetch train-delay-list from API-Server and give to View Object
-    public func fetchDelayList() {
+    public func fetchDelayList(region: String) {
+        self.appState.setFetchStatus(false)
+        self.appState.delayList.trains = []
         let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let clientError = error {
@@ -37,12 +39,14 @@ class DelayListInteractor: ObservableObject {
             // Convert Data Object to JSON Object
             let jsonObject = try? JSONSerialization.jsonObject(with: delayListData, options: []) as? [String:Any]
             let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
-            for trainRoute in delayListArray! {
-                self.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
-            }
             // Exec status change in main thred to avoid an error
             DispatchQueue.main.async {
-                self.isComplete = true
+                for trainRoute in delayListArray! {
+                    if trainRoute["company"] as! String == region || region == "全国" {
+                        self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+                    }
+                }
+                self.appState.setFetchStatus(true)
             }
         }
         task.resume()

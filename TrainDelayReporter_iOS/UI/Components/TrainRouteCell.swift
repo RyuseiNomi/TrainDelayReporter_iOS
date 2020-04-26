@@ -9,7 +9,7 @@
 import SwiftUI
 
 // Struct which has info about each train route
-struct TrainRoute: Identifiable {
+struct TrainRoute: Identifiable, Equatable {
     var id = UUID()
     let companyName: String
     let routeName: String

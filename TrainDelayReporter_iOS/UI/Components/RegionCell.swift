@@ -15,10 +15,14 @@ struct Region: Identifiable {
 }
 
 struct RegionCell:View {
+    // APIからのレスポンスを管理するためのオブジェクト
+    @EnvironmentObject public var appState: AppState
+    
     var region: Region
     var body: some View {
         Button(action :{
-            print(self.region.name) //TODO DelsyListFetcherを呼び出す
+            let delayListFetcher = DelayListInteractor(appState: self.appState)
+            delayListFetcher.fetchDelayList(region: self.region.name)
         }) {
             VStack {
                 HStack {
