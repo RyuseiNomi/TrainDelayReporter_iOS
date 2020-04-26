@@ -6,7 +6,7 @@
 
 Here's a just demo movie of alpha version.
 
-<img src="/Users/Ryusei/dev/TrainDelayReporter_iOS/assets/trainDemo.gif" alt="demo" style="zoom:33%;" />
+<img src="./assets/trainDemo.gif" alt="demo" style="zoom:33%;" />
 
 ## Update History
 
