@@ -13,11 +13,6 @@ import Combine
 
 struct DelayList: View {
     
-    // HamburgerMenuのx軸情報をDelayListとNavigationBarで共有
-    @Binding public var currentOffset: CGFloat
-    @Binding public var openOffset: CGFloat
-    @Binding public var closeOffset: CGFloat
-    
     // APIからのレスポンスを管理するためのオブジェクト
     @EnvironmentObject public var appState: AppState
     
@@ -46,42 +41,7 @@ struct DelayList: View {
                     delayListFetcher.fetchDelayList(region: "全国")
                 })
                 .background(Color(red: 255/255, green: 250/255, blue: 240/255))
-                // スライドメニューがでてきたらメインコンテンツをグレイアウト
-                //TODO 背景色の変化を指定した場合にリストがスクロール出来なくなる原因の調査
-//                Color.gray.opacity(
-//                    Double((self.closeOffset - self.currentOffset)/self.closeOffset) - 0.4
-//                )
-                HamburgerMenu()
-                    .background(Color.white)
-                    .frame(width: geometry.size.width * 0.5)
-                    .onAppear(perform: {
-                        self.setInitPosition(viewWidth: geometry.size.width)
-                    })
-                    .offset(x: self.currentOffset)
-                    .animation(.default)
             }
-            .gesture(DragGesture(minimumDistance: 30)
-                .onChanged{ value in
-                    // MenuViewのx軸を予め定めた最大出現位置と同等になるまでx軸の位置をずらす
-                    if (self.currentOffset != self.openOffset) {
-                        self.currentOffset = self.closeOffset + value.translation.width
-                    }
-                }
-                .onEnded { value in
-                    if (value.location.x > value.startLocation.x) {
-                        self.currentOffset = self.openOffset
-                    } else {
-                        self.currentOffset = self.closeOffset
-                    }
-                }
-            )
         }
-    }
-    
-    // MenuViewの初期位置・出現時のx軸を定める
-    public func setInitPosition(viewWidth: CGFloat) {
-        self.currentOffset = viewWidth * -1
-        self.closeOffset = self.currentOffset
-        self.openOffset = ((viewWidth / 2) * -1)+((viewWidth * 0.5) / 2)
     }
 }
