@@ -39,13 +39,13 @@ class DelayListInteractor {
             // Convert Data Object to JSON Object
             let jsonObject = try? JSONSerialization.jsonObject(with: delayListData, options: []) as? [String:Any]
             let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
-            for trainRoute in delayListArray! {
-                if trainRoute["company"] as! String == region || region == "全国" {
-                    self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
-                }
-            }
             // Exec status change in main thred to avoid an error
             DispatchQueue.main.async {
+                for trainRoute in delayListArray! {
+                    if trainRoute["company"] as! String == region || region == "全国" {
+                        self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+                    }
+                }
                 self.appState.setFetchStatus(true)
             }
         }
