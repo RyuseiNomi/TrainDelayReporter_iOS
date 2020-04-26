@@ -21,9 +21,8 @@ struct RegionCell:View {
     var region: Region
     var body: some View {
         Button(action :{
-            print(self.region.name) //TODO DelsyListFetcherを呼び出す
             let delayListFetcher = DelayListInteractor(appState: self.appState)
-            delayListFetcher.fetchDelayList()
+            delayListFetcher.fetchDelayList(region: self.region.name)
         }) {
             VStack {
                 HStack {

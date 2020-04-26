@@ -40,7 +40,7 @@ struct DelayList: View {
                 }
                 .onAppear(perform: {
                     let delayListFetcher = DelayListInteractor(appState: self.appState)
-                    delayListFetcher.fetchDelayList()
+                    delayListFetcher.fetchDelayList(region: "")
                 })
                 .background(Color(red: 255/255, green: 250/255, blue: 240/255))
                 // スライドメニューがでてきたらメインコンテンツをグレイアウト

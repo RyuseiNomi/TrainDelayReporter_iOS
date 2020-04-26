@@ -47,12 +47,12 @@ struct HamburgerMenu: View {
         // FIXME: 地方名とカラーコードのイテレート処理の実装
         // 地方名とカラーコードを格納した辞書型配列をforでイテレートしたかったが
         // 順番が保証されないため手動でappendしているが。
-        self.regionStructs.append(Region(name: "北海道", colorCode: 0x02C03C))
-        self.regionStructs.append(Region(name: "東日本", colorCode: 0x37863F))
-        self.regionStructs.append(Region(name: "西日本", colorCode: 0x0072BA))
-        self.regionStructs.append(Region(name: "東海", colorCode: 0xFF7E1C))
-        self.regionStructs.append(Region(name: "四国", colorCode: 0x00ACD1))
-        self.regionStructs.append(Region(name: "九州", colorCode: 0xF62D36))
+        self.regionStructs.append(Region(name: "JR北海道", colorCode: 0x02C03C))
+        self.regionStructs.append(Region(name: "JR東日本", colorCode: 0x37863F))
+        self.regionStructs.append(Region(name: "JR西日本", colorCode: 0x0072BA))
+        self.regionStructs.append(Region(name: "JR東海", colorCode: 0xFF7E1C))
+        self.regionStructs.append(Region(name: "JR四国", colorCode: 0x00ACD1))
+        self.regionStructs.append(Region(name: "JR九州", colorCode: 0xF62D36))
         self.regionStructs.append(Region(name: "私鉄", colorCode: 0x98A9D6))
         // Exec status change in main thred to avoid an error
         DispatchQueue.main.async {

@@ -38,7 +38,7 @@ struct NavigationBar: View {
                     Button(action: {
                         //TODO EnvironmentObjectをDIしてInteractorのメソッドを発火
                         let delayListFetcher = DelayListInteractor(appState: self.appState)
-                        delayListFetcher.fetchDelayList()
+                        delayListFetcher.fetchDelayList(region: "")
                     }) {
                         Image("Reload")
                             .renderingMode(.original)

@@ -19,8 +19,9 @@ class DelayListInteractor {
     }
     
     // Fetch train-delay-list from API-Server and give to View Object
-    public func fetchDelayList() {
+    public func fetchDelayList(region: String) {
         self.appState.setFetchStatus(false)
+        self.appState.delayList.trains = []
         let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let clientError = error {
@@ -39,8 +40,12 @@ class DelayListInteractor {
             let jsonObject = try? JSONSerialization.jsonObject(with: delayListData, options: []) as? [String:Any]
             let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
             for trainRoute in delayListArray! {
-                self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+                if (trainRoute["company"] as! String == region || region == "") {
+                    //TODO Optionalな値から地域名をStringで比較できるようにする
+                    self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
+                }
             }
+            dump(self.appState.delayList.trains)
             // Exec status change in main thred to avoid an error
             DispatchQueue.main.async {
                 self.appState.setFetchStatus(true)
