@@ -13,11 +13,6 @@ import Combine
 
 struct DelayList: View {
     
-    // HamburgerMenuのx軸情報をDelayListとNavigationBarで共有
-    @Binding public var currentOffset: CGFloat
-    @Binding public var openOffset: CGFloat
-    @Binding public var closeOffset: CGFloat
-    
     // APIからのレスポンスを管理するためのオブジェクト
     @EnvironmentObject public var appState: AppState
     

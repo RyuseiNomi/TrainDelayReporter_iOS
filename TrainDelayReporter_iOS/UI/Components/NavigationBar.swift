@@ -10,9 +10,6 @@ import SwiftUI
 
 struct NavigationBar: View {
     
-    @Binding public var currentOffset: CGFloat
-    @Binding public var openOffset: CGFloat
-    @Binding public var closeOffset: CGFloat
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
@@ -21,7 +18,7 @@ struct NavigationBar: View {
                 Color(red: 107/255, green: 142/255, blue: 35/255).edgesIgnoringSafeArea(.all)
                 HStack {
                     Button(action: {
-                        self.toggleHamburgerMenu()
+                        self.appState.toggleHamburgerMenu()
                     }) {
                         Image("Hamburger")
                             .renderingMode(.original)
@@ -47,14 +44,6 @@ struct NavigationBar: View {
                     }
                 }.padding()
             }
-        }
-    }
-    
-    public func toggleHamburgerMenu() {
-        if (self.currentOffset == self.openOffset) {
-            self.currentOffset = self.closeOffset
-        } else {
-            self.currentOffset = self.openOffset
         }
     }
 }
