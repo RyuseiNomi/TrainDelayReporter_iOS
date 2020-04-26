@@ -47,6 +47,7 @@ struct HamburgerMenu: View {
         // FIXME: 地方名とカラーコードのイテレート処理の実装
         // 地方名とカラーコードを格納した辞書型配列をforでイテレートしたかったが
         // 順番が保証されないため手動でappendしているが。
+        self.regionStructs.append(Region(name: "全国", colorCode: 0x02C03C))
         self.regionStructs.append(Region(name: "JR北海道", colorCode: 0x02C03C))
         self.regionStructs.append(Region(name: "JR東日本", colorCode: 0x37863F))
         self.regionStructs.append(Region(name: "JR西日本", colorCode: 0x0072BA))

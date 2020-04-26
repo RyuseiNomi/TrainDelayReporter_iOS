@@ -40,7 +40,7 @@ class DelayListInteractor {
             let jsonObject = try? JSONSerialization.jsonObject(with: delayListData, options: []) as? [String:Any]
             let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
             for trainRoute in delayListArray! {
-                if trainRoute["company"] as! String == region || region == "" {
+                if trainRoute["company"] as! String == region || region == "全国" {
                     self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
                 }
             }
