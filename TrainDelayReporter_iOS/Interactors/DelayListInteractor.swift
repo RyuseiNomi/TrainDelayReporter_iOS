@@ -41,7 +41,6 @@ class DelayListInteractor {
             let delayListArray = jsonObject?["delay_list"] as? [[String: Any]]
             for trainRoute in delayListArray! {
                 if (trainRoute["company"] as! String == region || region == "") {
-                    //TODO Optionalな値から地域名をStringで比較できるようにする
                     self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
                 }
             }
