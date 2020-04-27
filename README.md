@@ -8,14 +8,22 @@ Here's a just demo movie of alpha version.
 
 <img src="./assets/trainDemo.gif" alt="demo" style="zoom:33%;" />
 
+## Architecture
+
+We make reference from [this article](https://nalexn.github.io/clean-architecture-swiftui/) when we consider how we build the app based on which idea.
+
+Thought result, we adopt this architecture.
+
+![architecture](https://github.com/nalexn/blob_files/blob/master/images/swiftui_arc_001_d.png?raw=true)
+
+Image from https://nalexn.github.io/clean-architecture-swiftui/
+
 ## Update History
 
 | Version | Topic      | Date       |
 | ------- | ---------- | ---------- |
 | alpha.0 | Add README | 2020-04-26 |
 |         |            |            |
-
-
 
 ## Requirements
 
