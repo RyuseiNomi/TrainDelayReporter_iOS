@@ -12,7 +12,8 @@ import Combine
 class AppState: ObservableObject {
     
     struct DelayList {
-        var trains:[TrainRoute] = []
+        var fetchedTrains:[TrainRoute] = []
+        var filteredTrains:[TrainRoute] = []
         var isComplete:Bool = false
     }
     

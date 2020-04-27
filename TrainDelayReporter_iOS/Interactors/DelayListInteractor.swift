@@ -18,10 +18,11 @@ class DelayListInteractor {
         self.appState = appState
     }
     
-    // Fetch train-delay-list from API-Server and give to View Object
-    public func fetchDelayList(region: String) {
+    /// APIより全ての路線の遅延情報を取得する
+    /// アプリ内でこのメソッドを介してAPIと通信をするのはビルド時とリロード時のみである
+    public func fetchAllDelayListFromAPI() {
         self.appState.setFetchStatus(false)
-        self.appState.delayList.trains = []
+        self.appState.delayList.fetchedTrains = []
         let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let clientError = error {
@@ -42,13 +43,26 @@ class DelayListInteractor {
             // Exec status change in main thred to avoid an error
             DispatchQueue.main.async {
                 for trainRoute in delayListArray! {
-                    if trainRoute["company"] as! String == region || region == "全国" {
-                        self.appState.delayList.trains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
-                    }
+                    self.appState.delayList.fetchedTrains.append(TrainRoute(companyName: trainRoute["company"] as! String, routeName: trainRoute["name"] as! String))
                 }
+                self.appState.delayList.filteredTrains = self.appState.delayList.fetchedTrains
                 self.appState.setFetchStatus(true)
             }
         }
         task.resume()
+    }
+    
+    public func filterRegion(region: String) {
+        self.appState.delayList.filteredTrains = []
+        for trains in self.appState.delayList.fetchedTrains {
+            if trains.companyName == region {
+                self.appState.delayList.filteredTrains.append(
+                    TrainRoute(
+                        companyName: trains.companyName as! String,
+                        routeName: trains.routeName as! String
+                    )
+                )
+            }
+        }
     }
 }
