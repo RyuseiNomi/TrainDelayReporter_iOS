@@ -22,7 +22,7 @@ struct RegionCell:View {
     var body: some View {
         Button(action :{
             let delayListFetcher = DelayListInteractor(appState: self.appState)
-            delayListFetcher.fetchDelayList(region: self.region.name)
+            delayListFetcher.filterRegion(region: self.region.name)
             self.appState.toggleHamburgerMenu()
             self.appState.menuOffset.region = self.region.name
         }) {
