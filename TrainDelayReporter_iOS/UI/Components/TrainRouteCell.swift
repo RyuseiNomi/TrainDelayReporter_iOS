@@ -45,7 +45,15 @@ struct TrainRouteCell: View {
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-        .background(Color(red: 215/255, green: 61/255, blue: 0/255))
+        .background(self.getBackgroundColor())
         .cornerRadius(10)
+    }
+    
+    private func getBackgroundColor() -> Color {
+        var color = Color(red: 154/255, green: 205/255, blue: 50/255)
+        if self.delayList.Status == "△" {
+            color = Color(red: 215/255, green: 61/255, blue: 0/255)
+        }
+        return color
     }
 }
