@@ -19,49 +19,53 @@ struct NavigationBar: View {
         GeometryReader { geometry in
             ZStack {
                 Color(red: 107/255, green: 142/255, blue: 35/255).edgesIgnoringSafeArea(.all)
-                VStack {
-                    HStack {
+                HStack {
+                    Button(action: {
+                        self.appState.toggleHamburgerMenu()
+                    }) {
+                        Image("Hamburger")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 50.0, height: 50.0, alignment: .leading)
+                    }
+                    Spacer()
+                    if self.isSearch == false {
+                        Text(self.appState.menuOffset.region)
+                        .foregroundColor(.white)
+                        .fontWeight(.heavy)
+                        .font(.system(size: 30))
+                        .frame(alignment: .center)
+                    } else if self.isSearch == true {
+                        RouteSearchBar(text: self.$searchText)
+                        List {
+                            ForEach(self.appState.delayList.fetchedTrains.filter {
+                                self.searchText.isEmpty ? true : $0.Name.contains(self.searchText)
+                            }, id:\.self) { train in
+                                Text(train.Name)
+                            }
+                        }
+                    }
+                    Spacer()
+                    if self.isSearch == false {
                         Button(action: {
-                            self.appState.toggleHamburgerMenu()
+                            self.isSearch = true
                         }) {
-                            Image("Hamburger")
+                            Image("Search")
                                 .renderingMode(.original)
                                 .resizable()
-                                .frame(width: 50.0, height: 50.0, alignment: .leading)
+                                .frame(width: 50.0, height: 50.0, alignment: .trailing)
                         }
-                        Spacer()
-                        if self.isSearch == false {
-                            Text(self.appState.menuOffset.region)
-                            .foregroundColor(.white)
-                            .fontWeight(.heavy)
-                            .font(.system(size: 30))
-                            .frame(alignment: .center)
-                        } else if self.isSearch == true {
-                            RouteSearchBar(text: self.$searchText)
+                    } else if self.isSearch == true {
+                        Button(action: {
+                            self.isSearch = false
+                        }) {
+                            Image("Close")
+                                .renderingMode(.original)
+                                .resizable()
+                                .frame(width: 50.0, height: 50.0, alignment: .trailing)
                         }
-                        Spacer()
-                        if self.isSearch == false {
-                            Button(action: {
-                                self.isSearch = true
-                            }) {
-                                Image("Search")
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .frame(width: 50.0, height: 50.0, alignment: .trailing)
-                            }
-                        } else if self.isSearch == true {
-                            Button(action: {
-                                self.isSearch = false
-                            }) {
-                                Image("Close")
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .frame(width: 50.0, height: 50.0, alignment: .trailing)
-                            }
-                        }
-                        
-                    }.padding()
-                }
+                    }
+                }.padding()
             }
         }
     }
@@ -76,6 +80,7 @@ struct RouteSearchBar: UIViewRepresentable {
         let routeSearchBar = UISearchBar(frame: .zero)
         routeSearchBar.delegate = context.coordinator
         routeSearchBar.searchBarStyle = .minimal
+        routeSearchBar.autocapitalizationType = .none
         return routeSearchBar
     }
     
