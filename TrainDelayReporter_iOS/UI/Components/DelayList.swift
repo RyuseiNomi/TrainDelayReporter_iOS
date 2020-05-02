@@ -31,7 +31,7 @@ struct DelayList: View {
                           vSpacing: 20,
                           hSpacing: 20,
                           vPadding: 20,
-                          hPadding: 0
+                          hPadding: 20
                     ) { trainRoute in
                         TrainRouteCell(delayList: trainRoute)
                     }

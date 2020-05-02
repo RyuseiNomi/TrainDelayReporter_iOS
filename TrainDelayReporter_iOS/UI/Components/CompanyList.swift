@@ -26,7 +26,7 @@ struct CompanyCell: View {
                     Text(self.company.CompanyName)
                     .foregroundColor(.white)
                     .fontWeight(.bold)
-                    //.font(.system(size: 48))
+                    .font(.system(size: 30))
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 //.frame(height: geometry.size.height * 2, alignment: .leading)
@@ -51,10 +51,10 @@ struct CompanyList: View {
             }
             QGrid(self.companyList,
                   columns: 1,
-                  vSpacing: 20,
+                  vSpacing: 45,
                   hSpacing: 20,
                   vPadding: 20,
-                  hPadding: 0
+                  hPadding: 20
             ) { company in
                 CompanyCell(company: company)
             }

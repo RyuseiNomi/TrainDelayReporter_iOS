@@ -29,10 +29,9 @@ struct RegionCell: View {
                     Text(self.region.Name)
                     .foregroundColor(.white)
                     .fontWeight(.bold)
-                    //.font(.system(size: 48))
+                    .font(.system(size: 30))
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                //.frame(height: geometry.size.height * 2, alignment: .leading)
                 .background(Color(red: 154/255, green: 205/255, blue: 50/255))
                 .cornerRadius(10)
             }.navigationBarTitle("ホーム")
@@ -52,10 +51,10 @@ struct RegionList: View {
             }
             QGrid(self.regionList,
                   columns: 1,
-                  vSpacing: 20,
+                  vSpacing: 45,
                   hSpacing: 20,
                   vPadding: 20,
-                  hPadding: 0
+                  hPadding: 20
             ) { region in
                 RegionCell(region: region)
             }
