@@ -24,7 +24,7 @@ struct RegionCell: View {
     
     var body: some View {
         GeometryReader { geometry in
-            NavigationLink(destination: RouteSelectView(region: self.region.Name)) {
+            NavigationLink(destination: CompanySelectView(region: self.region.Name)) {
                 HStack {
                     Text(self.region.Name)
                     .foregroundColor(.white)

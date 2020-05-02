@@ -1,5 +1,5 @@
 //
-//  RouteSelectView.swift
+//  CompanySelectView.swift
 //  TrainDelayReporter_iOS
 //
 //  Created by 能美龍星 on 2020/05/02.
@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct RouteSelectView: View {
+struct CompanySelectView: View {
     
     public var region:String = ""
     
     var body: some View {
         VStack {
-            RouteList()
+            CompanyList()
         }
     }
 }
