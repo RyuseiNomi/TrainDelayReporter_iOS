@@ -14,7 +14,7 @@ struct CompanySelectView: View {
     
     var body: some View {
         VStack {
-            CompanyList()
+            CompanyList(region: self.region)
         }
     }
 }

@@ -39,13 +39,15 @@ struct CompanyCell: View {
 
 struct CompanyList: View {
     
+    public var region:String = ""
     @State private var isComplete:Bool = false
     @State private var companyList:[Company] = []
+    @EnvironmentObject public var appState: AppState
     
     var body: some View {
         VStack {
             if self.isComplete == false {
-                Text("地域情報を取得中")
+                Text("鉄道会社一覧を取得中")
             }
             QGrid(self.companyList,
                   columns: 1,
@@ -56,15 +58,20 @@ struct CompanyList: View {
             ) { company in
                 CompanyCell(company: company)
             }
-        }.onAppear(perform: { self.setCompanyList() })
+        }.onAppear(perform: { self.setCompanyList(region: self.region) })
     }
     
-    public func setCompanyList() {
-        self.companyList = []
-        self.companyList.append(Company(CompanyName: "JR東日本", ColorCode: 0x02C03C, DelayCount: 0))
-        self.companyList.append(Company(CompanyName: "小田急電鉄", ColorCode: 0x37863F, DelayCount: 0))
-        self.companyList.append(Company(CompanyName: "京王電鉄", ColorCode: 0x0072BA, DelayCount: 0))
-        self.companyList.append(Company(CompanyName: "東京メトロ", ColorCode: 0xFF7E1C, DelayCount: 0))
+    public func setCompanyList(region: String) {
+        self.isComplete = false
+        for trains in self.appState.delayList.fetchedTrains {
+            if trains.Region != region {
+                continue
+            }
+            if self.companyList.contains(where: {$0.CompanyName == trains.Company}) {
+                continue
+            }
+            self.companyList.append(Company(CompanyName: trains.Company, ColorCode: 0x02C03C, DelayCount: 0))
+        }
         DispatchQueue.main.async {
             self.isComplete = true
         }
