@@ -32,7 +32,7 @@ struct CompanyCell: View {
                 //.frame(height: geometry.size.height * 2, alignment: .leading)
                 .background(Color(red: 154/255, green: 205/255, blue: 50/255))
                 .cornerRadius(10)
-            }.navigationBarTitle("鉄道会社選択")
+            }.navigationBarTitle("鉄道会社選択", displayMode: .inline)
         }
     }
 }

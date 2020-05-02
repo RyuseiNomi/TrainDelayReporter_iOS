@@ -34,7 +34,7 @@ struct RegionCell: View {
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .background(Color(red: 154/255, green: 205/255, blue: 50/255))
                 .cornerRadius(10)
-            }.navigationBarTitle("ホーム")
+            }.navigationBarTitle("ホーム", displayMode: .inline)
         }
     }
 }
