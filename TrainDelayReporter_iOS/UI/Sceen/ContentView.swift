@@ -22,11 +22,6 @@ struct ContentView: View {
                     NavigationView {
                         RegionList()
                     }
-//                    NavigationView {
-//                        NavigationLink(destination: RouteSelectView()) {
-//                            Text("地域を選択")
-//                        }
-//                    }
                 }
                 HamburgerMenu()
                     .background(Color.white)

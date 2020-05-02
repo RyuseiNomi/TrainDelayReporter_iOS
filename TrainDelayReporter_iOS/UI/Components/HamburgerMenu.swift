@@ -40,25 +40,4 @@ struct HamburgerMenu: View {
 //            self.setRegions()
 //        })
     }
-    
-    /// Yield Region cells for HamburgerMenu
-    public func setRegions() {
-        
-        // FIXME: 地方名とカラーコードのイテレート処理の実装
-        // 地方名とカラーコードを格納した辞書型配列をforでイテレートしたかったが
-        // 順番が保証されないため手動でappendしているが。
-//        self.regionStructs.append(Region(name: "全国", colorCode: 0x02C03C))
-//        self.regionStructs.append(Region(name: "北海道", colorCode: 0x02C03C))
-//        self.regionStructs.append(Region(name: "東北", colorCode: 0x37863F))
-//        self.regionStructs.append(Region(name: "関東", colorCode: 0x0072BA))
-//        self.regionStructs.append(Region(name: "中部", colorCode: 0xFF7E1C))
-//        self.regionStructs.append(Region(name: "近畿", colorCode: 0x00ACD1))
-//        self.regionStructs.append(Region(name: "中国地方", colorCode: 0xF62D36))
-//        self.regionStructs.append(Region(name: "四国", colorCode: 0x98A9D6))
-//        self.regionStructs.append(Region(name: "九州", colorCode: 0x98A9D6))
-        // Exec status change in main thred to avoid an error
-        DispatchQueue.main.async {
-            self.isComplete = true
-        }
-    }
 }
