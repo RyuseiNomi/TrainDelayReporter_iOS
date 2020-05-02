@@ -11,7 +11,8 @@ import QGrid
 
 struct DelayListView: View {
     
+    public var companyName:String = ""
     var body: some View {
-        DelayList()
+        DelayList(companyName: self.companyName)
     }
 }

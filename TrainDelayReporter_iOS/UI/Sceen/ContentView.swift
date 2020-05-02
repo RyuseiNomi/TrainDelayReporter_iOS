@@ -37,6 +37,10 @@ struct ContentView: View {
                     .offset(x: self.appState.menuOffset.currentOffset)
                     .animation(.default)
             }
+            .onAppear(perform: {
+                let delayListFetcher = DelayListInteractor(appState: self.appState)
+                delayListFetcher.fetchAllDelayListFromAPI()
+            })
             .gesture(DragGesture(minimumDistance: 30)
                 .onChanged{ value in
                     // MenuViewのx軸を予め定めた最大出現位置と同等になるまでx軸の位置をずらす

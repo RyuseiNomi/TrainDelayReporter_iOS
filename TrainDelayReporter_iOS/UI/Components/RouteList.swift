@@ -11,7 +11,7 @@ import QGrid
 
 struct Route: Identifiable {
     var id = UUID()
-    var Name: String
+    var CompanyName: String
     var ColorCode: Int
     var DelayCount: Int
 }
@@ -21,9 +21,9 @@ struct RouteCell: View {
     var route: Route
     var body: some View {
         GeometryReader { geometry in
-            NavigationLink(destination: DelayListView()) {
+            NavigationLink(destination: DelayListView(companyName: self.route.CompanyName)) {
                 HStack {
-                    Text(self.route.Name)
+                    Text(self.route.CompanyName)
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     //.font(.system(size: 48))
@@ -61,10 +61,10 @@ struct RouteList: View {
     
     public func setRouteList() {
         self.routeList = []
-        self.routeList.append(Route(Name: "JR東日本", ColorCode: 0x02C03C, DelayCount: 0))
-        self.routeList.append(Route(Name: "小田急電鉄", ColorCode: 0x37863F, DelayCount: 0))
-        self.routeList.append(Route(Name: "京王電鉄", ColorCode: 0x0072BA, DelayCount: 0))
-        self.routeList.append(Route(Name: "東京メトロ", ColorCode: 0xFF7E1C, DelayCount: 0))
+        self.routeList.append(Route(CompanyName: "JR東日本", ColorCode: 0x02C03C, DelayCount: 0))
+        self.routeList.append(Route(CompanyName: "小田急電鉄", ColorCode: 0x37863F, DelayCount: 0))
+        self.routeList.append(Route(CompanyName: "京王電鉄", ColorCode: 0x0072BA, DelayCount: 0))
+        self.routeList.append(Route(CompanyName: "東京メトロ", ColorCode: 0xFF7E1C, DelayCount: 0))
         DispatchQueue.main.async {
             self.isComplete = true
         }

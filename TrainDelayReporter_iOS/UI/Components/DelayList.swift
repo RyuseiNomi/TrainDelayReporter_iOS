@@ -13,7 +13,7 @@ import Combine
 
 struct DelayList: View {
     
-    // APIからのレスポンスを管理するためのオブジェクト
+    public var companyName:String = ""
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
@@ -38,7 +38,7 @@ struct DelayList: View {
                 }
                 .onAppear(perform: {
                     let delayListFetcher = DelayListInteractor(appState: self.appState)
-                    delayListFetcher.fetchAllDelayListFromAPI()
+                    delayListFetcher.filterRegion(company: self.companyName)
                 })
                 .background(Color(red: 255/255, green: 250/255, blue: 240/255))
             }
