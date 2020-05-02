@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
     
@@ -16,15 +17,17 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-                    NavigationBar()
-                        .frame(width: geometry.size.width, height: geometry.size.height/10)
-                    DelayList()
+//                    NavigationBar()
+//                        .frame(height: geometry.size.height * 0.1)
+                    NavigationView {
+                        RegionList()
+                    }
+//                    NavigationView {
+//                        NavigationLink(destination: RouteSelectView()) {
+//                            Text("地域を選択")
+//                        }
+//                    }
                 }
-                // スライドメニューがでてきたらメインコンテンツをグレイアウト
-                //TODO 背景色の変化を指定した場合にリストがスクロール出来なくなる原因の調査
-                //Color.gray.opacity(
-                //  Double((self.closeOffset - self.currentOffset)/self.closeOffset) - 0.4
-                //)
                 HamburgerMenu()
                     .background(Color.white)
                     .frame(width: geometry.size.width * 0.5)
