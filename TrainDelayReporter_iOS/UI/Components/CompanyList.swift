@@ -24,16 +24,17 @@ struct CompanyCell: View {
             NavigationLink(destination: DelayListView(companyName: self.company.CompanyName)) {
                 HStack {
                     Text(self.company.CompanyName)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
+                    .foregroundColor(.black)
                     .font(.system(size: 30))
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                //.frame(height: geometry.size.height * 2, alignment: .leading)
-                .background(Color(red: 154/255, green: 205/255, blue: 50/255))
+                .background(Color(red: 255/255, green: 255/255, blue: 255/255))
                 .cornerRadius(10)
-            }.navigationBarTitle("鉄道会社選択", displayMode: .inline)
+            }
+            .navigationBarTitle("鉄道会社選択", displayMode: .inline)
+            .padding()
         }
+        .shadow(color: Color(red: 169/255, green: 169/255, blue: 169/255), radius: 2)
     }
 }
 
@@ -59,6 +60,7 @@ struct CompanyList: View {
                 CompanyCell(company: company)
             }
         }.onAppear(perform: { self.setCompanyList(region: self.region) })
+        .background(Color(red: 245/255, green: 245/255, blue: 245/255))
     }
     
     public func setCompanyList(region: String) {

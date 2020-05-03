@@ -23,19 +23,22 @@ struct RegionCell: View {
     var region: Region
     
     var body: some View {
-        GeometryReader { geometry in
-            NavigationLink(destination: CompanySelectView(region: self.region.Name)) {
-                HStack {
-                    Text(self.region.Name)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .font(.system(size: 30))
+        ZStack () {
+            GeometryReader { geometry in
+                NavigationLink(destination: CompanySelectView(region: self.region.Name)) {
+                    HStack {
+                        Text(self.region.Name)
+                        .foregroundColor(.black)
+                        .font(.system(size: 30))
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                    .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+                    .cornerRadius(10)
                 }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                .background(Color(red: 154/255, green: 205/255, blue: 50/255))
-                .cornerRadius(10)
-            }.navigationBarTitle("ホーム", displayMode: .inline)
-        }
+                .navigationBarTitle("ホーム", displayMode: .inline)
+                .padding()
+            }
+        }.shadow(color: Color(red: 169/255, green: 169/255, blue: 169/255), radius: 2)
     }
 }
 
@@ -59,6 +62,7 @@ struct RegionList: View {
                 RegionCell(region: region)
             }
         }.onAppear(perform: { self.setRegionList() })
+        .background(Color(red: 245/255, green: 245/255, blue: 245/255))
     }
     
     public func setRegionList() {
