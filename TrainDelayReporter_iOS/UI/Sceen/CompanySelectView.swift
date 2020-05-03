@@ -13,8 +13,6 @@ struct CompanySelectView: View {
     public var region:String = ""
     
     var body: some View {
-        VStack {
-            CompanyList(region: self.region)
-        }
+        CompanyList(region: self.region)
     }
 }

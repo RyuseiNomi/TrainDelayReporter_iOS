@@ -13,12 +13,10 @@ struct SettingView: View {
     
     let icon8Url = URL(string: "https://icons8.com")!
     var body: some View {
-        ZStack {
-            VStack {
-                Text("All of Icons by ")
-                Button(action : { UIApplication.shared.open(self.icon8Url) }) {
-                    Text("Icon8")
-                }
+        VStack {
+            Text("All of Icons by ")
+            Button(action : { UIApplication.shared.open(self.icon8Url) }) {
+                Text("Icon8")
             }
         }
     }

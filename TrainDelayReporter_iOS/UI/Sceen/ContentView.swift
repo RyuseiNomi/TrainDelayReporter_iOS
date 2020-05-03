@@ -15,31 +15,29 @@ struct ContentView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
-                VStack {
-                    TabView {
-                        RegionSelectView()
-                            .tabItem {
-                                Image("Japan")
-                                    .resizable()
-                                    .scaledToFit()
-                                Text("地域より選択")
-                            }
-                        SearchView()
-                            .tabItem {
-                                Image("Search")
-                                    .resizable()
-                                    .scaledToFit()
-                                Text("駅名から検索")
-                            }
-                        SettingView()
-                            .tabItem {
-                                Image("Setting")
-                                    .resizable()
-                                    .scaledToFit()
-                                Text("設定")
-                            }
-                    }
+            VStack {
+                TabView {
+                    RegionSelectView()
+                        .tabItem {
+                            Image("Japan")
+                                .resizable()
+                                .scaledToFit()
+                            Text("地域より検索")
+                        }
+                    SearchView()
+                        .tabItem {
+                            Image("Search")
+                                .resizable()
+                                .scaledToFit()
+                            Text("駅名から検索")
+                        }
+                    SettingView()
+                        .tabItem {
+                            Image("Setting")
+                                .resizable()
+                                .scaledToFit()
+                            Text("設定")
+                        }
                 }
             }
             .onAppear(perform: {
