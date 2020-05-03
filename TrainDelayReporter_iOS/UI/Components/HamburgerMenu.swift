@@ -60,8 +60,8 @@ struct HamburgerMenu: View {
     public func setMenuList() {
         self.isComplete = false
         self.menuCells = []
-        self.menuCells.append(Menu(IconName: "Search-gray", MenuTitle: "駅名から検索"))
-        self.menuCells.append(Menu(IconName: "Region-gray", MenuTitle: "地域から検索"))
+//        self.menuCells.append(Menu(IconName: "Search-gray", MenuTitle: "駅名から検索"))
+//        self.menuCells.append(Menu(IconName: "Region-gray", MenuTitle: "地域から検索"))
         DispatchQueue.main.async {
             self.isComplete = true
         }

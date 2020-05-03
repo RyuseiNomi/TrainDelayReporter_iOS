@@ -20,11 +20,17 @@ struct ContentView: View {
                     TabView {
                         RegionSelectView()
                             .tabItem {
-                              Text("地域より選択")
+                                Image("Japan")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("地域より選択")
                             }
                         SettingView()
                             .tabItem {
-                              Text("設定")
+                                Image("Setting")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("設定")
                             }
                     }
                 }
