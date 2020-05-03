@@ -25,6 +25,13 @@ struct ContentView: View {
                                     .scaledToFit()
                                 Text("地域より選択")
                             }
+                        SearchView()
+                            .tabItem {
+                                Image("Search")
+                                    .resizable()
+                                    .scaledToFit()
+                                Text("駅名から検索")
+                            }
                         SettingView()
                             .tabItem {
                                 Image("Setting")
