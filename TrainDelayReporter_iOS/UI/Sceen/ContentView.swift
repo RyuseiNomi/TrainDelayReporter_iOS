@@ -17,10 +17,15 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-//                    NavigationBar()
-//                        .frame(height: geometry.size.height * 0.1)
-                    NavigationView {
-                        RegionList()
+                    TabView {
+                        RegionSelectView()
+                            .tabItem {
+                              Text("地域より選択")
+                            }
+                        SettingView()
+                            .tabItem {
+                              Text("設定")
+                            }
                     }
                 }
                 HamburgerMenu()
