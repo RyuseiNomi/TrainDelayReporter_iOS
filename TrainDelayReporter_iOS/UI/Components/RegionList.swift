@@ -35,8 +35,6 @@ struct RegionCell: View {
                     .background(Color(red: 255/255, green: 255/255, blue: 255/255))
                     .cornerRadius(10)
                 }
-                .navigationBarTitle("ホーム", displayMode: .inline)
-                .padding()
             }
         }.shadow(color: Color(red: 169/255, green: 169/255, blue: 169/255), radius: 2)
     }
@@ -48,21 +46,32 @@ struct RegionList: View {
     @State private var regionList:[Region] = []
     
     var body: some View {
-        VStack {
-            if self.isComplete == false {
-                Text("地域情報を取得中")
+        GeometryReader { geometry in
+            VStack {
+                if self.isComplete == false {
+                    Text("地域情報を取得中")
+                }
+//                List {
+//                    ForEach(self.regionList) { region in
+//                        RegionCell(region: region)
+//                    }
+//                }
+//                .navigationBarTitle("ホーム", displayMode: .inline)
+                QGrid(self.regionList,
+                      columns: 1,
+                      vSpacing: 45,
+                      hSpacing: 0,
+                      vPadding: 20,
+                      hPadding: 20,
+                      isScrollable: true
+                ) { region in
+                    RegionCell(region: region)
+                }
             }
-            QGrid(self.regionList,
-                  columns: 1,
-                  vSpacing: 45,
-                  hSpacing: 20,
-                  vPadding: 20,
-                  hPadding: 20
-            ) { region in
-                RegionCell(region: region)
-            }
-        }.onAppear(perform: { self.setRegionList() })
-        .background(Color(red: 245/255, green: 245/255, blue: 245/255))
+            .navigationBarTitle("ホーム", displayMode: .inline)
+            .onAppear(perform: { self.setRegionList() })
+            .background(Color(red: 245/255, green: 245/255, blue: 245/255))
+        }
     }
     
     public func setRegionList() {

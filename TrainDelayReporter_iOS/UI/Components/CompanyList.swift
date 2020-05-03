@@ -31,8 +31,6 @@ struct CompanyCell: View {
                 .background(Color(red: 255/255, green: 255/255, blue: 255/255))
                 .cornerRadius(10)
             }
-            .navigationBarTitle("鉄道会社選択", displayMode: .inline)
-            .padding()
         }
         .shadow(color: Color(red: 169/255, green: 169/255, blue: 169/255), radius: 2)
     }
@@ -59,7 +57,9 @@ struct CompanyList: View {
             ) { company in
                 CompanyCell(company: company)
             }
-        }.onAppear(perform: { self.setCompanyList(region: self.region) })
+        }
+        .navigationBarTitle("鉄道会社選択", displayMode: .inline)
+        .onAppear(perform: { self.setCompanyList(region: self.region) })
         .background(Color(red: 245/255, green: 245/255, blue: 245/255))
     }
     
