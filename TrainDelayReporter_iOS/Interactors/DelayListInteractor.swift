@@ -59,11 +59,41 @@ class DelayListInteractor {
         task.resume()
     }
     
-    public func filterRegion(company: String) {
+    public func filter(grain: String, condition: String) {
+        if grain == "company" {
+            self.filterByCompany(company: condition)
+            return
+        }
+        if grain == "routeName" {
+            self.filterByRouteName(name: condition)
+            return
+        }
+    }
+    
+    private func filterByCompany(company: String) {
         self.appState.setFetchStatus(false)
         self.appState.delayList.filteredTrains = []
         for trains in self.appState.delayList.fetchedTrains {
             if trains.Company == company {
+                self.appState.delayList.filteredTrains.append(
+                    TrainRoute(
+                        Name: trains.Name as! String,
+                        Company: trains.Company as! String,
+                        Region: trains.Region as! String,
+                        Status: trains.Status as! String,
+                        Source: trains.Source as! String
+                    )
+                )
+            }
+        }
+        self.appState.setFetchStatus(true)
+    }
+    
+    private func filterByRouteName(name: String) {
+        self.appState.setFetchStatus(false)
+        self.appState.delayList.filteredTrains = []
+        for trains in self.appState.delayList.fetchedTrains {
+            if trains.Name == name {
                 self.appState.delayList.filteredTrains.append(
                     TrainRoute(
                         Name: trains.Name as! String,

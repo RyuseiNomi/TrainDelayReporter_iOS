@@ -16,15 +16,19 @@ struct SearchView: View {
     @State private var searchText: String = ""
     
     var body: some View {
-        VStack {
-            RouteSearchBar(text: self.$searchText)
-            List {
-                ForEach(self.appState.delayList.fetchedTrains.filter {
-                    self.searchText.isEmpty ? true : $0.Name.contains(self.searchText)
-                }, id:\.self) { train in
-                    Text(train.Name)
+        NavigationView {
+            VStack {
+                RouteSearchBar(text: self.$searchText)
+                List {
+                    ForEach(self.appState.delayList.fetchedTrains.filter {
+                        self.searchText.isEmpty ? true : $0.Name.contains(self.searchText)
+                    }, id:\.self) { train in
+                        NavigationLink(destination: DelayListView(grain: "routeName", condition: train.Name)) {
+                            Text(train.Name)
+                        }
+                    }
                 }
-            }
+            }.navigationBarTitle("駅名から検索", displayMode: .inline)
         }
     }
 }

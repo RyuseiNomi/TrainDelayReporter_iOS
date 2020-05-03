@@ -13,7 +13,8 @@ import Combine
 
 struct DelayList: View {
     
-    public var companyName:String = ""
+    public var grain: String = ""
+    public var condition:String = ""
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
@@ -38,7 +39,7 @@ struct DelayList: View {
                 }
                 .onAppear(perform: {
                     let delayListFetcher = DelayListInteractor(appState: self.appState)
-                    delayListFetcher.filterRegion(company: self.companyName)
+                    delayListFetcher.filter(grain: self.grain, condition: self.condition)
                 })
                 .background(Color(red: 255/255, green: 250/255, blue: 240/255))
             }

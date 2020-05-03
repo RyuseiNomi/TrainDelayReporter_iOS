@@ -11,8 +11,9 @@ import QGrid
 
 struct DelayListView: View {
     
-    public var companyName:String = ""
+    public var grain:String = ""
+    public var condition:String = ""
     var body: some View {
-        DelayList(companyName: self.companyName)
+        DelayList(grain: self.grain, condition: self.condition)
     }
 }
