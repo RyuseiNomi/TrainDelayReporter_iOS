@@ -53,17 +53,17 @@ class DelayListInteractor {
                         )
                     )
                 }
-                self.appState.delayList.filteredTrains = self.appState.delayList.fetchedTrains
                 self.appState.setFetchStatus(true)
             }
         }
         task.resume()
     }
     
-    public func filterRegion(region: String) {
+    public func filterRegion(company: String) {
+        self.appState.setFetchStatus(false)
         self.appState.delayList.filteredTrains = []
         for trains in self.appState.delayList.fetchedTrains {
-            if trains.Region == region {
+            if trains.Company == company {
                 self.appState.delayList.filteredTrains.append(
                     TrainRoute(
                         Name: trains.Name as! String,
@@ -75,5 +75,6 @@ class DelayListInteractor {
                 )
             }
         }
+        self.appState.setFetchStatus(true)
     }
 }

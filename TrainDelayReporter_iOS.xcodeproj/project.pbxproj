@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B2444F3245EAC28000CC90E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F2245EAC28000CC90E /* SettingView.swift */; };
+		1B2444F5245EB968000CC90E /* RegionSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F4245EB968000CC90E /* RegionSelectView.swift */; };
+		1B2444F7245ED70E000CC90E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F6245ED70E000CC90E /* SearchView.swift */; };
 		1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A352441A2FC00E54CDA /* AppDelegate.swift */; };
 		1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */; };
 		1BB17A3C2441A2FE00E54CDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB17A3B2441A2FE00E54CDA /* Assets.xcassets */; };
@@ -20,9 +23,10 @@
 		1BB17A722441B7E100E54CDA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A712441B7E100E54CDA /* AppState.swift */; };
 		1BB17A752441BA6700E54CDA /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB17A742441BA6700E54CDA /* QGrid */; };
 		1BB17A772441C1AC00E54CDA /* DelayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A762441C1AC00E54CDA /* DelayList.swift */; };
-		1BF8B3E324434F89000FE401 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8B3E224434F89000FE401 /* NavigationBar.swift */; };
-		1BF8B3E52444A260000FE401 /* HamburgerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */; };
-		1BF8EDEE244DEF28000DE47C /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF8EDED244DEF28000DE47C /* RegionCell.swift */; };
+		1BD33FAA245D38B5000EB417 /* CompanySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33FA9245D38B5000EB417 /* CompanySelectView.swift */; };
+		1BD33FAC245D3F4E000EB417 /* RegionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33FAB245D3F4E000EB417 /* RegionList.swift */; };
+		1BD33FAE245D56A3000EB417 /* CompanyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33FAD245D56A3000EB417 /* CompanyList.swift */; };
+		1BD33FB0245D578D000EB417 /* DelayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33FAF245D578D000EB417 /* DelayListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B2444F2245EAC28000CC90E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		1B2444F4245EB968000CC90E /* RegionSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectView.swift; sourceTree = "<group>"; };
+		1B2444F6245ED70E000CC90E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1BB17A322441A2FC00E54CDA /* TrainDelayReporter_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainDelayReporter_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB17A352441A2FC00E54CDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +68,10 @@
 		1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayListInteractor.swift; sourceTree = "<group>"; };
 		1BB17A712441B7E100E54CDA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1BB17A762441C1AC00E54CDA /* DelayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayList.swift; sourceTree = "<group>"; };
-		1BF8B3E224434F89000FE401 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenu.swift; sourceTree = "<group>"; };
-		1BF8EDED244DEF28000DE47C /* RegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
+		1BD33FA9245D38B5000EB417 /* CompanySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanySelectView.swift; sourceTree = "<group>"; };
+		1BD33FAB245D3F4E000EB417 /* RegionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionList.swift; sourceTree = "<group>"; };
+		1BD33FAD245D56A3000EB417 /* CompanyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyList.swift; sourceTree = "<group>"; };
+		1BD33FAF245D578D000EB417 /* DelayListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,10 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */,
-				1BF8EDED244DEF28000DE47C /* RegionCell.swift */,
 				1BB17A762441C1AC00E54CDA /* DelayList.swift */,
-				1BF8B3E224434F89000FE401 /* NavigationBar.swift */,
-				1BF8B3E42444A260000FE401 /* HamburgerMenu.swift */,
+				1BD33FAB245D3F4E000EB417 /* RegionList.swift */,
+				1BD33FAD245D56A3000EB417 /* CompanyList.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -195,6 +202,11 @@
 			isa = PBXGroup;
 			children = (
 				1BB17A6B2441B78000E54CDA /* ContentView.swift */,
+				1BD33FA9245D38B5000EB417 /* CompanySelectView.swift */,
+				1B2444F4245EB968000CC90E /* RegionSelectView.swift */,
+				1BD33FAF245D578D000EB417 /* DelayListView.swift */,
+				1B2444F2245EAC28000CC90E /* SettingView.swift */,
+				1B2444F6245ED70E000CC90E /* SearchView.swift */,
 			);
 			path = Sceen;
 			sourceTree = "<group>";
@@ -338,12 +350,16 @@
 			files = (
 				1BB17A6E2441B7B400E54CDA /* TrainRouteCell.swift in Sources */,
 				1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */,
-				1BF8B3E52444A260000FE401 /* HamburgerMenu.swift in Sources */,
-				1BF8EDEE244DEF28000DE47C /* RegionCell.swift in Sources */,
+				1BD33FB0245D578D000EB417 /* DelayListView.swift in Sources */,
+				1B2444F5245EB968000CC90E /* RegionSelectView.swift in Sources */,
+				1B2444F3245EAC28000CC90E /* SettingView.swift in Sources */,
 				1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */,
-				1BF8B3E324434F89000FE401 /* NavigationBar.swift in Sources */,
 				1BB17A722441B7E100E54CDA /* AppState.swift in Sources */,
+				1BD33FAC245D3F4E000EB417 /* RegionList.swift in Sources */,
+				1BD33FAE245D56A3000EB417 /* CompanyList.swift in Sources */,
 				1BB17A702441B7D100E54CDA /* DelayListInteractor.swift in Sources */,
+				1B2444F7245ED70E000CC90E /* SearchView.swift in Sources */,
+				1BD33FAA245D38B5000EB417 /* CompanySelectView.swift in Sources */,
 				1BB17A772441C1AC00E54CDA /* DelayList.swift in Sources */,
 				1BB17A6C2441B78000E54CDA /* ContentView.swift in Sources */,
 			);
