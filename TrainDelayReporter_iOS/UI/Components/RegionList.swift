@@ -69,7 +69,7 @@ struct RegionList: View {
                     RegionCell(region: region)
                 }
             }
-            .navigationBarTitle("ホーム", displayMode: .inline)
+            .navigationBarTitle("地域選択", displayMode: .inline)
             .onAppear(perform: { self.setRegionList() })
             .background(Color(red: 245/255, green: 245/255, blue: 245/255))
         }

@@ -21,7 +21,7 @@ struct CompanyCell: View {
     var company: Company
     var body: some View {
         GeometryReader { geometry in
-            NavigationLink(destination: DelayListView(companyName: self.company.CompanyName)) {
+            NavigationLink(destination: DelayListView(grain: "company", condition: self.company.CompanyName)) {
                 HStack {
                     Text(self.company.CompanyName)
                     .foregroundColor(.black)
