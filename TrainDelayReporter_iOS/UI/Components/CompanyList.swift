@@ -25,7 +25,8 @@ struct CompanyCell: View {
                 HStack {
                     Text(self.company.CompanyName)
                     .foregroundColor(.black)
-                    .font(.system(size: 30))
+                    .font(Font.custom("Helvetica-Light", size: 28))
+                    .padding()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .background(Color(red: 255/255, green: 255/255, blue: 255/255))
@@ -50,7 +51,7 @@ struct CompanyList: View {
             }
             QGrid(self.companyList,
                   columns: 1,
-                  vSpacing: 45,
+                  vSpacing: 60,
                   hSpacing: 20,
                   vPadding: 20,
                   hPadding: 20

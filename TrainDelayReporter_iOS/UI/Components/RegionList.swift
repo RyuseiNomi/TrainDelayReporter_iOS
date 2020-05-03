@@ -28,8 +28,9 @@ struct RegionCell: View {
                 NavigationLink(destination: CompanySelectView(region: self.region.Name)) {
                     HStack {
                         Text(self.region.Name)
-                        .foregroundColor(.black)
-                        .font(.system(size: 30))
+                            .foregroundColor(.black)
+                            .font(Font.custom("Helvetica-Light", size: 28))
+                            .padding()
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .background(Color(red: 255/255, green: 255/255, blue: 255/255))
@@ -59,9 +60,9 @@ struct RegionList: View {
 //                .navigationBarTitle("ホーム", displayMode: .inline)
                 QGrid(self.regionList,
                       columns: 1,
-                      vSpacing: 45,
+                      vSpacing: 60,
                       hSpacing: 0,
-                      vPadding: 20,
+                      vPadding: 10,
                       hPadding: 20,
                       isScrollable: true
                 ) { region in
