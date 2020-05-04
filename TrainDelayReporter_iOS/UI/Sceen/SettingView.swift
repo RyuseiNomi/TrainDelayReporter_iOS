@@ -22,11 +22,19 @@ struct SettingRow: View {
     private(set) var rowContent: RowContent
     
     var body: some View {
-        HStack() {
-            Image(self.rowContent.IconName)
-            Text(self.rowContent.MenuName)
-            Spacer()
+        ZStack() {
+            HStack() {
+                Image(self.rowContent.IconName)
+                Text(self.rowContent.MenuName)
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                    .font(Font.custom("Helvetica-Light", size: 24))
+                Spacer()
+            }
+            .padding()
+            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
         }
+        .cornerRadius(10)
+        .shadow(color: .gray, radius: 1, x: 0, y: 5)
     }
 }
 
@@ -43,7 +51,7 @@ struct SettingView: View {
                 }
                 QGrid(self.rowContents,
                       columns: 1,
-                      vSpacing: 60,
+                      vSpacing: 30,
                       hSpacing: 20,
                       vPadding: 20,
                       hPadding: 20
