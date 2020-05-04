@@ -29,7 +29,7 @@ struct ContentView: View {
                             Image("Search")
                                 .resizable()
                                 .scaledToFit()
-                            Text("駅名から検索")
+                            Text("路線名から検索")
                         }
                     SettingView()
                         .tabItem {

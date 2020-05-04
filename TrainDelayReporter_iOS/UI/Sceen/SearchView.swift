@@ -28,7 +28,7 @@ struct SearchView: View {
                         }
                     }
                 }
-            }.navigationBarTitle("駅名から検索", displayMode: .inline)
+            }.navigationBarTitle("路線名から検索", displayMode: .inline)
         }
     }
 }
