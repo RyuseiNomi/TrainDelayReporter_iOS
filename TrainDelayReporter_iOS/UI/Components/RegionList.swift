@@ -36,7 +36,7 @@ struct RegionCell: View {
             }
         }
         .cornerRadius(10)
-        .shadow(color: .gray, radius: 1, x: 0, y: 5)
+        .shadow(color: Color(red: 173/255, green: 216/255, blue: 230/255), radius: 1, x: 0, y: 5) //lightblue
     }
 }
 
@@ -64,7 +64,7 @@ struct RegionList: View {
             }
             .navigationBarTitle("地域選択", displayMode: .inline)
             .onAppear(perform: { self.setRegionList() })
-            .background(Color(red: 255/255, green: 250/255, blue: 240/255))
+            .background(Color(red: 248/255, green: 248/255, blue: 255/255)) //ghostwhite
         }
     }
     

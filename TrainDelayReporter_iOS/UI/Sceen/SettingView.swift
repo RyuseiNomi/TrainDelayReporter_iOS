@@ -65,7 +65,7 @@ struct SettingView: View {
             }
             .onAppear(perform: { self.setMenuList() })
             .navigationBarTitle("設定", displayMode: .inline)
-            .background(Color(red: 255/255, green: 250/255, blue: 240/255))
+            .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
         }
     }
     
