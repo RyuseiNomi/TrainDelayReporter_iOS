@@ -24,20 +24,19 @@ struct RegionCell: View {
     
     var body: some View {
         ZStack () {
-            GeometryReader { geometry in
-                NavigationLink(destination: CompanySelectView(region: self.region.Name)) {
-                    HStack {
-                        Text(self.region.Name)
-                            .foregroundColor(.black)
-                            .font(Font.custom("Helvetica-Light", size: 28))
-                            .padding()
-                    }
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                    .background(Color(red: 255/255, green: 255/255, blue: 255/255))
-                    .cornerRadius(10)
+            NavigationLink(destination: CompanySelectView(region: self.region.Name)) {
+                HStack {
+                    Text(self.region.Name)
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .font(Font.custom("Helvetica-Light", size: 28))
+                        .padding()
                 }
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .background(Color(red: 255/255, green: 255/255, blue: 255/255))
             }
-        }.shadow(color: Color(red: 169/255, green: 169/255, blue: 169/255), radius: 2)
+        }
+        .cornerRadius(10)
+        .shadow(color: .gray, radius: 1, x: 0, y: 5)
     }
 }
 
@@ -52,15 +51,9 @@ struct RegionList: View {
                 if self.isComplete == false {
                     Text("地域情報を取得中")
                 }
-//                List {
-//                    ForEach(self.regionList) { region in
-//                        RegionCell(region: region)
-//                    }
-//                }
-//                .navigationBarTitle("ホーム", displayMode: .inline)
                 QGrid(self.regionList,
                       columns: 1,
-                      vSpacing: 60,
+                      vSpacing: 25,
                       hSpacing: 0,
                       vPadding: 10,
                       hPadding: 20,
@@ -71,7 +64,7 @@ struct RegionList: View {
             }
             .navigationBarTitle("地域選択", displayMode: .inline)
             .onAppear(perform: { self.setRegionList() })
-            .background(Color(red: 245/255, green: 245/255, blue: 245/255))
+            .background(Color(red: 255/255, green: 250/255, blue: 240/255))
         }
     }
     
