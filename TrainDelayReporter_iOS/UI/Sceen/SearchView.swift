@@ -67,6 +67,13 @@ struct RouteSearchBar: UIViewRepresentable {
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             /// Set the text into Binding object
             text = searchText
+            searchBar.showsCancelButton = true
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.text = ""
+            searchBar.showsCancelButton = false
+            searchBar.endEditing(true)
         }
     }
 }
