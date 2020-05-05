@@ -22,7 +22,7 @@ struct TrainRoute: Identifiable, Equatable, Hashable {
 struct TrainRouteCell: View {
     var delayList: TrainRoute
     var body: some View {
-        NavigationLink(destination: RouteDetail(routeName: self.delayList.Name, status: self.delayList.Status)) {
+        NavigationLink(destination: RouteDetail(companyName: self.delayList.Company, routeName: self.delayList.Name, status: self.delayList.Status)) {
             HStack {
                 VStack(alignment: .leading) {
                     Text(self.delayList.Company)
