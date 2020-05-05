@@ -40,5 +40,6 @@ struct DelayList: View {
             delayListFetcher.filter(grain: self.grain, condition: self.condition)
         })
         .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .navigationBarTitle("遅延リスト", displayMode: .inline)
     }
 }

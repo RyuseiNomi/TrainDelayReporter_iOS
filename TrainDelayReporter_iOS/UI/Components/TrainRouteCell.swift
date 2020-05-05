@@ -22,32 +22,34 @@ struct TrainRoute: Identifiable, Equatable, Hashable {
 struct TrainRouteCell: View {
     var delayList: TrainRoute
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(self.delayList.Company)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                Text(self.delayList.Name)
-                    .foregroundColor(.white)
-                    .fontWeight(.heavy)
-                    .font(.title)
+        NavigationLink(destination: RouteDetail()) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(self.delayList.Company)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                    Text(self.delayList.Name)
+                        .foregroundColor(.white)
+                        .fontWeight(.heavy)
+                        .font(.title)
+                }
+                Spacer()
+                VStack {
+                    Text(self.delayList.Status)
+                        .foregroundColor(.white)
+                        .fontWeight(.heavy)
+                        .font(.system(size: 48))
+                    Text(self.delayList.Status == "○" ? "正常運転" : "遅れあり")
+                        .foregroundColor(.white)
+                        .fontWeight(.heavy)
+                        .font(.system(size: 18))
+                }
             }
-            Spacer()
-            VStack {
-                Text(self.delayList.Status)
-                    .foregroundColor(.white)
-                    .fontWeight(.heavy)
-                    .font(.system(size: 48))
-                Text(self.delayList.Status == "○" ? "正常運転" : "遅れあり")
-                    .foregroundColor(.white)
-                    .fontWeight(.heavy)
-                    .font(.system(size: 18))
-            }
-        }
-        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-        .background(self.getBackgroundColor())
-        .cornerRadius(10)
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .background(self.getBackgroundColor())
+            .cornerRadius(10)
             .shadow(color: .gray, radius: 1, x: 0, y: 5) //lightblue
+        }
     }
     
     private func getBackgroundColor() -> Color {
