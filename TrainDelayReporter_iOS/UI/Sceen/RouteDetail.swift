@@ -114,6 +114,7 @@ struct FavoriteButton_Off: View {
     var body: some View {
         HStack(alignment: .center) {
             Image("StarFavorite_Off")
+                .renderingMode(.original)
             Text("お気に入りに登録")
                 .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                 .font(Font.custom("Helvetica-Light", size: 18))
@@ -128,11 +129,12 @@ struct FavoriteButton_On: View {
     var body: some View {
         HStack(alignment: .center) {
             Image("StarFavorite_On")
+                .foregroundColor(.white)
             Text("お気に入りに登録済み")
                 .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                 .font(Font.custom("Helvetica-Light", size: 18))
             Spacer()
         }
-        .background(Color(red: 255/255, green: 255/255, blue: 255/255))
+        .background(Color(red: 255/255, green: 202/255, blue: 40/255))
     }
 }
