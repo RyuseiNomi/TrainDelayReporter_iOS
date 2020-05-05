@@ -20,20 +20,20 @@ struct CompanyCell: View {
     
     var company: Company
     var body: some View {
-        GeometryReader { geometry in
+        ZStack() {
             NavigationLink(destination: DelayListView(grain: "company", condition: self.company.CompanyName)) {
                 HStack {
                     Text(self.company.CompanyName)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
                     .font(Font.custom("Helvetica-Light", size: 28))
                     .padding()
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 .background(Color(red: 255/255, green: 255/255, blue: 255/255))
-                .cornerRadius(10)
             }
         }
-        .shadow(color: Color(red: 169/255, green: 169/255, blue: 169/255), radius: 2)
+        .cornerRadius(10)
+        .shadow(color: Color(red: 173/255, green: 216/255, blue: 230/255), radius: 1, x: 0, y: 5) //lightblue
     }
 }
 
@@ -51,7 +51,7 @@ struct CompanyList: View {
             }
             QGrid(self.companyList,
                   columns: 1,
-                  vSpacing: 60,
+                  vSpacing: 25,
                   hSpacing: 20,
                   vPadding: 20,
                   hPadding: 20
@@ -61,7 +61,7 @@ struct CompanyList: View {
         }
         .navigationBarTitle("鉄道会社選択", displayMode: .inline)
         .onAppear(perform: { self.setCompanyList(region: self.region) })
-        .background(Color(red: 245/255, green: 245/255, blue: 245/255))
+        .background(Color(red: 248/255, green: 248/255, blue: 255/255)) //ghostwhite
     }
     
     public func setCompanyList(region: String) {
