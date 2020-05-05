@@ -10,9 +10,11 @@ import SwiftUI
 
 struct RouteDetail: View {
     
+    private(set) var routeName:String = ""
+    private(set) var status:String = ""
     var body: some View {
         VStack() {
-            Text("詳細")
+            Text(self.routeName)
         }
     }
 }
