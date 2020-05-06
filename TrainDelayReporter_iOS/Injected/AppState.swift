@@ -15,6 +15,7 @@ class AppState: ObservableObject {
         var fetchedTrains:[TrainRoute] = []
         var filteredTrains:[TrainRoute] = []
         var isComplete:Bool = false
+        var domainError:String = ""
     }
     
     @Published public var delayList = DelayList()

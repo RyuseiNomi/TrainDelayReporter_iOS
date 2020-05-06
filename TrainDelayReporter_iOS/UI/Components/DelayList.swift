@@ -22,6 +22,9 @@ struct DelayList: View {
             if self.appState.delayList.isComplete == false {
                 Text("列車の遅延情報を取得中です")
             }
+            if self.appState.delayList.domainError != "" {
+                Text(self.appState.delayList.domainError)
+            }
             if self.appState.delayList.isComplete && self.appState.delayList.filteredTrains == [] {
                 Text("遅れている路線はありません")
             }
