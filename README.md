@@ -6,7 +6,7 @@
 
 Here's a just demo movie of alpha version.
 
-<img src="./assets/trainDemo.gif" alt="demo" style="zoom:33%;" />
+<img src="./assets/train_demo.gif" alt="demo" style="zoom:33%;" />
 
 ## Architecture
 
@@ -30,6 +30,7 @@ Image from https://nalexn.github.io/clean-architecture-swiftui/
 * [SwiftUI](https://developer.apple.com/jp/xcode/swiftui/)
 * [Combine](https://developer.apple.com/documentation/combine)
 * [QGrid](https://github.com/Q-Mobile/QGrid)
+* Icons in this app and AppIcon from [Icon8](https://icons8.com)
 
 
 

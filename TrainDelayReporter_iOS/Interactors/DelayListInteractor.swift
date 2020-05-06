@@ -26,15 +26,18 @@ class DelayListInteractor {
         let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let clientError = error {
-                print("クライアント側でエラーが発生: \(clientError.localizedDescription) \n")
+                self.appState.delayList.domainError = "クライアント側でエラーが発生: \(clientError.localizedDescription) \n"
+                self.appState.setFetchStatus(true)
                 return
             }
             guard let delayListData = data, let response = response as? HTTPURLResponse else {
-                print("データもしくはレスポンスがありません")
+                self.appState.delayList.domainError = "データもしくはレスポンスがありません"
+                self.appState.setFetchStatus(true)
                 return
             }
             if response.statusCode != 200 {
-                print("現在データを取得できません: \(response.statusCode)\n")
+                self.appState.delayList.domainError = "現在データを取得できません: \(response.statusCode)\n"
+                self.appState.setFetchStatus(true)
                 return
             }
             // Convert Data Object to JSON Object
@@ -53,17 +56,28 @@ class DelayListInteractor {
                         )
                     )
                 }
-                self.appState.delayList.filteredTrains = self.appState.delayList.fetchedTrains
                 self.appState.setFetchStatus(true)
             }
         }
         task.resume()
     }
     
-    public func filterRegion(region: String) {
+    public func filter(grain: String, condition: String) {
+        if grain == "company" {
+            self.filterByCompany(company: condition)
+            return
+        }
+        if grain == "routeName" {
+            self.filterByRouteName(name: condition)
+            return
+        }
+    }
+    
+    private func filterByCompany(company: String) {
+        self.appState.setFetchStatus(false)
         self.appState.delayList.filteredTrains = []
         for trains in self.appState.delayList.fetchedTrains {
-            if trains.Region == region {
+            if trains.Company == company {
                 self.appState.delayList.filteredTrains.append(
                     TrainRoute(
                         Name: trains.Name as! String,
@@ -75,5 +89,25 @@ class DelayListInteractor {
                 )
             }
         }
+        self.appState.setFetchStatus(true)
+    }
+    
+    private func filterByRouteName(name: String) {
+        self.appState.setFetchStatus(false)
+        self.appState.delayList.filteredTrains = []
+        for trains in self.appState.delayList.fetchedTrains {
+            if trains.Name == name {
+                self.appState.delayList.filteredTrains.append(
+                    TrainRoute(
+                        Name: trains.Name as! String,
+                        Company: trains.Company as! String,
+                        Region: trains.Region as! String,
+                        Status: trains.Status as! String,
+                        Source: trains.Source as! String
+                    )
+                )
+            }
+        }
+        self.appState.setFetchStatus(true)
     }
 }
