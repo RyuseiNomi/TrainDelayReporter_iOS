@@ -21,7 +21,7 @@ struct RouteDetail: View {
                 status: self.status
             )
             DelayStatusCell(status: self.status)
-            AddToFavoriteButton()
+            //AddToFavoriteButton()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
