@@ -20,6 +20,7 @@ struct CredentialView: View {
                 .font(Font.custom("Helvetica-Light", size: 24))
                 .padding()
             Text("1.0")
+                .foregroundColor(.black)
                 .padding()
             Divider()
             Text("Credentials")
@@ -28,6 +29,7 @@ struct CredentialView: View {
                 .padding()
             HStack() {
                 Text("Icons by ")
+                    .foregroundColor(.black)
                 Button(action : { UIApplication.shared.open(self.icon8Url) }) {
                     Text("Icon8")
                 }
@@ -35,6 +37,7 @@ struct CredentialView: View {
             .padding()
             HStack() {
                 Text("Operation information by ")
+                    .foregroundColor(.black)
                 Button(action : { UIApplication.shared.open(self.tetsudoJsonUrl) }) {
                     Text("鉄道遅延情報のjson")
                 }
