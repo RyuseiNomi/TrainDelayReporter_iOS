@@ -310,6 +310,7 @@
 			mainGroup = 1BB17A292441A2FC00E54CDA;
 			packageReferences = (
 				1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */,
+				1B2444FC24627680000CC90E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 1BB17A332441A2FC00E54CDA /* Products */;
 			projectDirPath = "";
@@ -696,6 +697,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1B2444FC24627680000CC90E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
 		1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Q-Mobile/QGrid";
