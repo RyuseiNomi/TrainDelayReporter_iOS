@@ -42,7 +42,7 @@ struct DelayList: View {
             let delayListFetcher = DelayListInteractor(appState: self.appState)
             delayListFetcher.filter(grain: self.grain, condition: self.condition)
         })
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 248/255, green: 248/255, blue: 255/255)) //ghostwhite
         .navigationBarTitle("遅延リスト", displayMode: .inline)
     }
 }

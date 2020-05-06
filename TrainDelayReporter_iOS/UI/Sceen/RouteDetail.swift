@@ -24,7 +24,7 @@ struct RouteDetail: View {
             //AddToFavoriteButton()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 248/255, green: 248/255, blue: 255/255)) //ghostwhite
     }
 }
 
