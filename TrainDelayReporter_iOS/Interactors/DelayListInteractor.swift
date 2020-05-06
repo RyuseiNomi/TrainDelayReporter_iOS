@@ -26,15 +26,18 @@ class DelayListInteractor {
         let url = URL(string: "https://8wbb81dkpd.execute-api.ap-northeast-1.amazonaws.com/beta/delayList?region=all")!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let clientError = error {
-                print("クライアント側でエラーが発生: \(clientError.localizedDescription) \n")
+                self.appState.delayList.domainError = "クライアント側でエラーが発生: \(clientError.localizedDescription) \n"
+                self.appState.setFetchStatus(true)
                 return
             }
             guard let delayListData = data, let response = response as? HTTPURLResponse else {
-                print("データもしくはレスポンスがありません")
+                self.appState.delayList.domainError = "データもしくはレスポンスがありません"
+                self.appState.setFetchStatus(true)
                 return
             }
             if response.statusCode != 200 {
-                print("現在データを取得できません: \(response.statusCode)\n")
+                self.appState.delayList.domainError = "現在データを取得できません: \(response.statusCode)\n"
+                self.appState.setFetchStatus(true)
                 return
             }
             // Convert Data Object to JSON Object

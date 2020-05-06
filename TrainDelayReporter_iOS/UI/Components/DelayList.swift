@@ -22,6 +22,9 @@ struct DelayList: View {
             if self.appState.delayList.isComplete == false {
                 Text("列車の遅延情報を取得中です")
             }
+            if self.appState.delayList.domainError != "" {
+                Text(self.appState.delayList.domainError)
+            }
             if self.appState.delayList.isComplete && self.appState.delayList.filteredTrains == [] {
                 Text("遅れている路線はありません")
             }
@@ -39,7 +42,7 @@ struct DelayList: View {
             let delayListFetcher = DelayListInteractor(appState: self.appState)
             delayListFetcher.filter(grain: self.grain, condition: self.condition)
         })
-        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .background(Color(red: 248/255, green: 248/255, blue: 255/255)) //ghostwhite
         .navigationBarTitle("遅延リスト", displayMode: .inline)
     }
 }

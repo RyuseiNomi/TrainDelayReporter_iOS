@@ -49,6 +49,9 @@ struct CompanyList: View {
             if self.isComplete == false {
                 Text("鉄道会社一覧を取得中")
             }
+            if self.appState.delayList.domainError != "" {
+                Text("列車の運行情報が取得できませんでした。\n 通信環境を確かめて再度お試しください。")
+            }
             QGrid(self.companyList,
                   columns: 1,
                   vSpacing: 25,
