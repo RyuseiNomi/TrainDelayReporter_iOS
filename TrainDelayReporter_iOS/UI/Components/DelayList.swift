@@ -18,29 +18,28 @@ struct DelayList: View {
     @EnvironmentObject public var appState: AppState
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .center) {
-                if self.appState.delayList.isComplete == false {
-                    Text("列車の遅延情報を取得中です")
-                }
-                if self.appState.delayList.isComplete && self.appState.delayList.filteredTrains == [] {
-                    Text("遅れている路線はありません")
-                }
-                QGrid(self.appState.delayList.filteredTrains,
-                      columns: 1,
-                      vSpacing: 20,
-                      hSpacing: 20,
-                      vPadding: 20,
-                      hPadding: 20
-                ) { trainRoute in
-                    TrainRouteCell(delayList: trainRoute)
-                }
+        VStack(alignment: .center) {
+            if self.appState.delayList.isComplete == false {
+                Text("列車の遅延情報を取得中です")
             }
-            .onAppear(perform: {
-                let delayListFetcher = DelayListInteractor(appState: self.appState)
-                delayListFetcher.filter(grain: self.grain, condition: self.condition)
-            })
-            .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+            if self.appState.delayList.isComplete && self.appState.delayList.filteredTrains == [] {
+                Text("遅れている路線はありません")
+            }
+            QGrid(self.appState.delayList.filteredTrains,
+                  columns: 1,
+                  vSpacing: 20,
+                  hSpacing: 20,
+                  vPadding: 20,
+                  hPadding: 20
+            ) { trainRoute in
+                TrainRouteCell(delayList: trainRoute)
+            }
         }
+        .onAppear(perform: {
+            let delayListFetcher = DelayListInteractor(appState: self.appState)
+            delayListFetcher.filter(grain: self.grain, condition: self.condition)
+        })
+        .background(Color(red: 255/255, green: 250/255, blue: 240/255)) //floralwhite
+        .navigationBarTitle("遅延リスト", displayMode: .inline)
     }
 }

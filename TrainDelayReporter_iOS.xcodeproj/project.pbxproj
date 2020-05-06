@@ -10,6 +10,9 @@
 		1B2444F3245EAC28000CC90E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F2245EAC28000CC90E /* SettingView.swift */; };
 		1B2444F5245EB968000CC90E /* RegionSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F4245EB968000CC90E /* RegionSelectView.swift */; };
 		1B2444F7245ED70E000CC90E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F6245ED70E000CC90E /* SearchView.swift */; };
+		1B2444F9246114FD000CC90E /* RouteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444F8246114FC000CC90E /* RouteDetail.swift */; };
+		1B2444FB24617456000CC90E /* CredentialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2444FA24617456000CC90E /* CredentialView.swift */; };
+		1B43221424628E48000124F4 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1B43221324628E48000124F4 /* QGrid */; };
 		1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A352441A2FC00E54CDA /* AppDelegate.swift */; };
 		1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */; };
 		1BB17A3C2441A2FE00E54CDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BB17A3B2441A2FE00E54CDA /* Assets.xcassets */; };
@@ -21,7 +24,6 @@
 		1BB17A6E2441B7B400E54CDA /* TrainRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6D2441B7B400E54CDA /* TrainRouteCell.swift */; };
 		1BB17A702441B7D100E54CDA /* DelayListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A6F2441B7D100E54CDA /* DelayListInteractor.swift */; };
 		1BB17A722441B7E100E54CDA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A712441B7E100E54CDA /* AppState.swift */; };
-		1BB17A752441BA6700E54CDA /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 1BB17A742441BA6700E54CDA /* QGrid */; };
 		1BB17A772441C1AC00E54CDA /* DelayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB17A762441C1AC00E54CDA /* DelayList.swift */; };
 		1BD33FAA245D38B5000EB417 /* CompanySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33FA9245D38B5000EB417 /* CompanySelectView.swift */; };
 		1BD33FAC245D3F4E000EB417 /* RegionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD33FAB245D3F4E000EB417 /* RegionList.swift */; };
@@ -50,6 +52,8 @@
 		1B2444F2245EAC28000CC90E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		1B2444F4245EB968000CC90E /* RegionSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectView.swift; sourceTree = "<group>"; };
 		1B2444F6245ED70E000CC90E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1B2444F8246114FC000CC90E /* RouteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetail.swift; sourceTree = "<group>"; };
+		1B2444FA24617456000CC90E /* CredentialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialView.swift; sourceTree = "<group>"; };
 		1BB17A322441A2FC00E54CDA /* TrainDelayReporter_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainDelayReporter_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB17A352441A2FC00E54CDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BB17A372441A2FC00E54CDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB17A752441BA6700E54CDA /* QGrid in Frameworks */,
+				1B43221424628E48000124F4 /* QGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +211,8 @@
 				1BD33FAF245D578D000EB417 /* DelayListView.swift */,
 				1B2444F2245EAC28000CC90E /* SettingView.swift */,
 				1B2444F6245ED70E000CC90E /* SearchView.swift */,
+				1B2444F8246114FC000CC90E /* RouteDetail.swift */,
+				1B2444FA24617456000CC90E /* CredentialView.swift */,
 			);
 			path = Sceen;
 			sourceTree = "<group>";
@@ -228,7 +234,7 @@
 			);
 			name = TrainDelayReporter_iOS;
 			packageProductDependencies = (
-				1BB17A742441BA6700E54CDA /* QGrid */,
+				1B43221324628E48000124F4 /* QGrid */,
 			);
 			productName = TrainDelayReporter_iOS;
 			productReference = 1BB17A322441A2FC00E54CDA /* TrainDelayReporter_iOS.app */;
@@ -303,7 +309,7 @@
 			);
 			mainGroup = 1BB17A292441A2FC00E54CDA;
 			packageReferences = (
-				1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */,
+				1B43221224628E48000124F4 /* XCRemoteSwiftPackageReference "QGrid" */,
 			);
 			productRefGroup = 1BB17A332441A2FC00E54CDA /* Products */;
 			projectDirPath = "";
@@ -352,6 +358,8 @@
 				1BB17A362441A2FC00E54CDA /* AppDelegate.swift in Sources */,
 				1BD33FB0245D578D000EB417 /* DelayListView.swift in Sources */,
 				1B2444F5245EB968000CC90E /* RegionSelectView.swift in Sources */,
+				1B2444F9246114FD000CC90E /* RouteDetail.swift in Sources */,
+				1B2444FB24617456000CC90E /* CredentialView.swift in Sources */,
 				1B2444F3245EAC28000CC90E /* SettingView.swift in Sources */,
 				1BB17A382441A2FC00E54CDA /* SceneDelegate.swift in Sources */,
 				1BB17A722441B7E100E54CDA /* AppState.swift in Sources */,
@@ -688,20 +696,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */ = {
+		1B43221224628E48000124F4 /* XCRemoteSwiftPackageReference "QGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			repositoryURL = "https://github.com/Q-Mobile/QGrid.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1BB17A742441BA6700E54CDA /* QGrid */ = {
+		1B43221324628E48000124F4 /* QGrid */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1BB17A732441BA6700E54CDA /* XCRemoteSwiftPackageReference "QGrid" */;
+			package = 1B43221224628E48000124F4 /* XCRemoteSwiftPackageReference "QGrid" */;
 			productName = QGrid;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -14,7 +14,6 @@ struct RowContent: Identifiable {
     var id = UUID()
     var IconName:String = ""
     var MenuName:String = ""
-    var TargetView:String = ""
 }
 
 struct SettingRow: View {
@@ -23,15 +22,17 @@ struct SettingRow: View {
     
     var body: some View {
         ZStack() {
-            HStack() {
-                Image(self.rowContent.IconName)
-                Text(self.rowContent.MenuName)
-                    .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
-                    .font(Font.custom("Helvetica-Light", size: 24))
-                Spacer()
+            NavigationLink(destination: CredentialView()) {
+                HStack() {
+                    Image(self.rowContent.IconName)
+                    Text(self.rowContent.MenuName)
+                        .foregroundColor(Color(red: 105/255, green: 105/255, blue: 105/255))
+                        .font(Font.custom("Helvetica-Light", size: 24))
+                    Spacer()
+                }
+                .padding()
+                .background(Color(red: 255/255, green: 255/255, blue: 255/255))
             }
-            .padding()
-            .background(Color(red: 255/255, green: 255/255, blue: 255/255))
         }
         .cornerRadius(10)
         .shadow(color: .gray, radius: 1, x: 0, y: 5)
@@ -42,7 +43,6 @@ struct SettingView: View {
     
     @State public var isComplete:Bool = false
     @State private var rowContents:[RowContent] = []
-    private let icon8Url = URL(string: "https://icons8.com")!
     var body: some View {
         NavigationView {
             VStack {
@@ -58,10 +58,6 @@ struct SettingView: View {
                 ) { row in
                     SettingRow(rowContent: row)
                 }
-                Text("All of Icons by ")
-                Button(action : { UIApplication.shared.open(self.icon8Url) }) {
-                    Text("Icon8")
-                }
             }
             .onAppear(perform: { self.setMenuList() })
             .navigationBarTitle("設定", displayMode: .inline)
@@ -72,10 +68,10 @@ struct SettingView: View {
     private func setMenuList() {
         self.isComplete = false
         self.rowContents = []
-        self.rowContents.append(RowContent(IconName: "Star", MenuName: "お気に入りの路線", TargetView: ""))
-        self.rowContents.append(RowContent(IconName: "Moon", MenuName: "ナイトモードの設定", TargetView: ""))
-        self.rowContents.append(RowContent(IconName: "Bell", MenuName: "通知設定", TargetView: ""))
-        self.rowContents.append(RowContent(IconName: "Phone", MenuName: "このアプリについて", TargetView: ""))
+//        self.rowContents.append(RowContent(IconName: "Star", MenuName: "お気に入りの路線", TargetView: ""))
+//        self.rowContents.append(RowContent(IconName: "Moon", MenuName: "ナイトモードの設定", TargetView: ""))
+//        self.rowContents.append(RowContent(IconName: "Bell", MenuName: "通知設定", TargetView: ""))
+        self.rowContents.append(RowContent(IconName: "Phone", MenuName: "このアプリについて"))
         DispatchQueue.main.async {
             self.isComplete = true
         }
