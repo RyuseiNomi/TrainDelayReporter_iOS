@@ -28,7 +28,7 @@ struct CredentialView: View {
                 .font(Font.custom("Helvetica-Light", size: 24))
                 .padding()
             HStack() {
-                Text("Icons by ")
+                Text("Icons and AppIcon by ")
                     .foregroundColor(.black)
                 Button(action : { UIApplication.shared.open(self.icon8Url) }) {
                     Text("Icon8")

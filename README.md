@@ -30,7 +30,7 @@ Image from https://nalexn.github.io/clean-architecture-swiftui/
 * [SwiftUI](https://developer.apple.com/jp/xcode/swiftui/)
 * [Combine](https://developer.apple.com/documentation/combine)
 * [QGrid](https://github.com/Q-Mobile/QGrid)
-* Icons in this app from [Icon8](https://icons8.jp/)
+* Icons in this app and AppIcon from [Icon8](https://icons8.com)
 
 
 
