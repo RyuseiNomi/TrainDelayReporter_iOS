@@ -8,6 +8,8 @@ Here's a just demo movie of alpha version.
 
 <img src="./assets/train_demo.gif" alt="demo" style="zoom:33%;" />
 
+[NOTE] This app is now not on AppStore.
+
 ## Architecture
 
 We make reference from [this article](https://nalexn.github.io/clean-architecture-swiftui/) when we consider how we build the app based on which idea.
